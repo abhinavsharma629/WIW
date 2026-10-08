@@ -2889,7 +2889,7 @@ h2 {
   border-top: 1px solid var(--line);
   min-height: 25rem;
   padding: 3.5rem 2.5rem;
-  transition: none;
+  transition: box-shadow 250ms ease, transform 250ms ease;
 }
 
 .event-card + .event-card {
@@ -2900,8 +2900,9 @@ h2 {
   background-color: transparent;
   background-position: center;
   background-size: cover;
-  box-shadow: none;
-  transform: none;
+  box-shadow: 0 1.5rem 3rem rgba(41, 40, 35, 0.16);
+  transform: translateY(-0.55rem);
+  z-index: 2;
 }
 
 .event-icon,
