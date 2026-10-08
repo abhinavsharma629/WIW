@@ -2889,6 +2889,7 @@ h2 {
   border-top: 1px solid var(--line);
   min-height: 25rem;
   padding: 3.5rem 2.5rem;
+  transition: none;
 }
 
 .event-card + .event-card {
@@ -2896,7 +2897,9 @@ h2 {
 }
 
 .event-card:hover {
-  background: var(--paper);
+  background-color: transparent;
+  background-position: center;
+  background-size: cover;
   box-shadow: none;
   transform: none;
 }
@@ -2941,17 +2944,6 @@ h2 {
   align-items: center;
   display: inline-flex;
   white-space: nowrap;
-}
-
-.album-icon {
-  flex: 0 0 auto;
-  height: 1.15rem;
-  margin-right: 0.55rem;
-  width: 1.15rem;
-}
-
-.apple-album-icon {
-  fill: currentColor;
 }
 
 .game-section {
@@ -3106,9 +3098,9 @@ footer {
   }
 
   .hero-image {
-    aspect-ratio: 4 / 5;
+    aspect-ratio: 959 / 1280;
     background: transparent;
-    min-height: 33rem;
+    min-height: 0;
   }
 
   .hero-image .hero-image-backdrop {

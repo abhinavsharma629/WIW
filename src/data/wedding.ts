@@ -123,17 +123,17 @@ export const quizQuestions = [
   {
     question: "Who said “I love you” first?",
     options: ["Abhinav", "Mishi", "Both together", "They still debate it"],
-    answer: 3,
+    answer: 1,
   },
   {
-    question: "What is their perfect date night?",
-    options: ["A fancy dinner", "A long drive", "Movies at home", "All of the above"],
-    answer: 3,
+    question: "Who gives the best gifts?",
+    options: ["Abhinav", "Mishi", "Both equally", "Their families"],
+    answer: 1,
   },
   {
     question: "Who is most likely to own the dance floor?",
     options: ["Abhinav", "Mishi", "Their friends", "The parents"],
-    answer: 1,
+    answer: 0,
   },
 ];
 
@@ -156,6 +156,6 @@ export const shoeGameQuestions = [
   },
   {
     question: "Who will be the first one on the dance floor tonight?",
-    answer: "bride",
+    answer: "groom",
   },
 ] as const;

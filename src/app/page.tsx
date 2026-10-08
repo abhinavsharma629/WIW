@@ -48,26 +48,6 @@ function Monogram() {
   );
 }
 
-function GooglePhotosIcon() {
-  return (
-    <svg className="album-icon" viewBox="0 0 24 24" aria-hidden="true">
-      <path fill="#4285f4" d="M12 2a5 5 0 0 1 5 5v5h-5a5 5 0 0 1 0-10Z" />
-      <path fill="#34a853" d="M22 12a5 5 0 0 1-5 5h-5v-5a5 5 0 0 1 10 0Z" />
-      <path fill="#fbbc04" d="M12 22a5 5 0 0 1-5-5v-5h5a5 5 0 0 1 0 10Z" />
-      <path fill="#ea4335" d="M2 12a5 5 0 0 1 5-5h5v5a5 5 0 0 1-10 0Z" />
-    </svg>
-  );
-}
-
-function AppleAlbumIcon() {
-  return (
-    <svg className="album-icon apple-album-icon" viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M12.2 7.1C10 5.2 6.4 6 5.3 9.5c-1.5 4.8 2.4 10.5 5 10.5 1 0 1.3-.6 2.1-.6s1.2.6 2.2.6c2.5 0 6.3-5.4 5-10.2-1-3.7-5-4.6-7.4-2.7Z" />
-      <path d="M12.4 6.1c.2-2 1.7-3.5 3.8-3.8-.1 2.1-1.6 3.6-3.8 3.8Z" />
-    </svg>
-  );
-}
-
 export default function Home() {
   const [invitationOpen, setInvitationOpen] = useState(false);
   const [countdown, setCountdown] = useState<Countdown>(emptyCountdown);
@@ -353,11 +333,9 @@ export default function Home() {
           </div>
           <div className="album-links">
             <a className="text-link" href={couple.googleAlbumUrl} target="_blank" rel="noreferrer">
-              <GooglePhotosIcon />
               View Google album <span>↗</span>
             </a>
             <a className="text-link" href={couple.appleAlbumUrl} target="_blank" rel="noreferrer">
-              <AppleAlbumIcon />
               View Apple album <span>↗</span>
             </a>
           </div>
