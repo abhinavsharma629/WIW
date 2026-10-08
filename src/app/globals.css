@@ -3055,6 +3055,21 @@ footer {
     padding-top: 2rem;
   }
 
+  .hero-image {
+    aspect-ratio: 4 / 5;
+    background: transparent;
+    min-height: 0;
+  }
+
+  .hero-image .hero-image-backdrop {
+    display: none;
+  }
+
+  .hero-image .hero-image-photo {
+    object-fit: cover;
+    object-position: center;
+  }
+
   .story-portrait {
     margin: 0;
   }
@@ -3067,6 +3082,18 @@ footer {
   .gallery-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-template-rows: repeat(2, 32rem);
+  }
+
+  .gallery-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .album-links {
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
   }
 }
 
