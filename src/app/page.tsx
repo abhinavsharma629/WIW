@@ -224,8 +224,8 @@ export default function Home() {
         </div>
         <div className="hero-image">
           <Image
-            src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=2200&q=90"
-            alt="Wedding couple walking together at their celebration"
+            src="/images/abhinav-mishi-cover.jpg"
+            alt="Abhinav and Mishi enjoying an outdoor adventure together"
             fill
             priority
             sizes="100vw"

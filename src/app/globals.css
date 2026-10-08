@@ -2792,7 +2792,7 @@ h2 {
 
 .hero-image img {
   object-fit: cover;
-  object-position: center 58%;
+  object-position: center 42%;
 }
 
 .hero-image-caption {
@@ -3082,7 +3082,7 @@ footer {
   }
 
   .hero-image img {
-    object-position: 54% center;
+    object-position: center;
   }
 
   .hero-image-caption {
