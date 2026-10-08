@@ -1,69 +1,569 @@
+"use client";
+
 import Image from "next/image";
+import { FormEvent, useEffect, useMemo, useState } from "react";
+import {
+  couple,
+  events,
+  gallery,
+  quizQuestions,
+  shoeGameQuestions,
+  story,
+} from "@/data/wedding";
+import {
+  RiveCharacterPreview,
+  RiveShoeGameStage,
+} from "@/components/RiveShoeGame";
+
+type Countdown = {
+  days: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
+};
+
+const emptyCountdown: Countdown = { days: 0, hours: 0, minutes: 0, seconds: 0 };
+
+function getCountdown(): Countdown {
+  const distance = Math.max(
+    0,
+    new Date(couple.weddingDate).getTime() - Date.now(),
+  );
+
+  return {
+    days: Math.floor(distance / 86_400_000),
+    hours: Math.floor((distance / 3_600_000) % 24),
+    minutes: Math.floor((distance / 60_000) % 60),
+    seconds: Math.floor((distance / 1_000) % 60),
+  };
+}
+
+function Monogram() {
+  return (
+    <span className="monogram" aria-label={`${couple.partnerOne} and ${couple.partnerTwo}`}>
+      {couple.partnerOne[0]}
+      <i>&</i>
+      {couple.partnerTwo[0]}
+    </span>
+  );
+}
 
 export default function Home() {
+  const [invitationOpen, setInvitationOpen] = useState(false);
+  const [countdown, setCountdown] = useState<Countdown>(emptyCountdown);
+  const [activeQuestion, setActiveQuestion] = useState(0);
+  const [quizScore, setQuizScore] = useState(0);
+  const [quizFinished, setQuizFinished] = useState(false);
+  const [activeGame, setActiveGame] = useState<"quiz" | "shoes">("shoes");
+  const [guestSide, setGuestSide] = useState<"bride" | "groom" | null>(null);
+  const [shoeQuestion, setShoeQuestion] = useState(0);
+  const [raisedShoe, setRaisedShoe] = useState<"bride" | "groom" | null>(null);
+  const [shoeAnswerReady, setShoeAnswerReady] = useState(false);
+  const [shoeScore, setShoeScore] = useState(0);
+  const [shoeFinished, setShoeFinished] = useState(false);
+  const [selectedPhoto, setSelectedPhoto] = useState<number | null>(null);
+  const [rsvpStatus, setRsvpStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+
+  useEffect(() => {
+    const tick = () => setCountdown(getCountdown());
+    const initialTimer = window.setTimeout(tick, 0);
+    const interval = window.setInterval(tick, 1_000);
+
+    return () => {
+      window.clearTimeout(initialTimer);
+      window.clearInterval(interval);
+    };
+  }, []);
+
+  const countdownItems = useMemo(
+    () =>
+      Object.entries(countdown).map(([label, value]) => ({
+        label,
+        value: String(value).padStart(2, "0"),
+      })),
+    [countdown],
+  );
+
+  function answerQuiz(optionIndex: number) {
+    if (optionIndex === quizQuestions[activeQuestion].answer) {
+      setQuizScore((score) => score + 1);
+    }
+
+    if (activeQuestion === quizQuestions.length - 1) {
+      setQuizFinished(true);
+      return;
+    }
+
+    setActiveQuestion((question) => question + 1);
+  }
+
+  function restartQuiz() {
+    setActiveQuestion(0);
+    setQuizScore(0);
+    setQuizFinished(false);
+  }
+
+  function chooseGuestSide(side: "bride" | "groom") {
+    setGuestSide(side);
+    setShoeQuestion(0);
+    setRaisedShoe(null);
+    setShoeAnswerReady(false);
+    setShoeScore(0);
+    setShoeFinished(false);
+  }
+
+  function chooseShoe(shoe: "bride" | "groom") {
+    if (raisedShoe) {
+      return;
+    }
+
+    setRaisedShoe(shoe);
+    setShoeAnswerReady(false);
+    if (shoe === shoeGameQuestions[shoeQuestion].answer) {
+      setShoeScore((score) => score + 1);
+    }
+  }
+
+  function advanceShoeGame() {
+    if (shoeQuestion === shoeGameQuestions.length - 1) {
+      setShoeFinished(true);
+      return;
+    }
+
+    setShoeQuestion((question) => question + 1);
+    setRaisedShoe(null);
+    setShoeAnswerReady(false);
+  }
+
+  function restartShoeGame() {
+    setGuestSide(null);
+    setShoeQuestion(0);
+    setRaisedShoe(null);
+    setShoeAnswerReady(false);
+    setShoeScore(0);
+    setShoeFinished(false);
+  }
+
+  async function submitRsvp(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setRsvpStatus("sending");
+    const form = event.currentTarget;
+    const payload = Object.fromEntries(new FormData(form).entries());
+
+    try {
+      const response = await fetch("/api/rsvp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        throw new Error("Unable to save RSVP");
+      }
+
+      form.reset();
+      setRsvpStatus("success");
+    } catch {
+      setRsvpStatus("error");
+    }
+  }
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <main>
+      <div className={`invitation-gate ${invitationOpen ? "is-open" : ""}`}>
+        <div className="gate-glow" />
+        <div className="invitation-card">
+          <p className="eyebrow">Together with their families</p>
+          <Monogram />
+          <h1>You are invited</h1>
+          <p>to witness the beginning of our forever</p>
+          <button className="button button-gold" onClick={() => setInvitationOpen(true)}>
+            Open invitation
+            <span aria-hidden="true">→</span>
+          </button>
+        </div>
+      </div>
+
+      <nav className="site-nav" aria-label="Main navigation">
+        <a href="#home" className="nav-mark">
+          <Monogram />
+        </a>
+        <div className="nav-links">
+          <a href="#story">Our story</a>
+          <a href="#events">The celebration</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#game">Couple game</a>
+        </div>
+        <a href="#rsvp" className="nav-rsvp">
+          RSVP
+        </a>
+      </nav>
+
+      <section id="home" className="hero">
+        <div className="hero-intro">
+          <div className="hero-content">
+            <p className="eyebrow reveal">A wedding celebration · {couple.city}</p>
+            <h1>
+              <span>{couple.partnerOne}</span>
+              <i>&</i>
+              <span>{couple.partnerTwo}</span>
+            </h1>
+          </div>
+          <div className="hero-summary">
+            <p>{couple.tagline}</p>
+            <p className="hero-date">{couple.displayDate}</p>
+            <div className="hero-actions">
+              <a className="button button-dark" href="#rsvp">
+                RSVP now <span aria-hidden="true">↗</span>
+              </a>
+              <a className="text-link" href="#story">
+                Our story <span>↓</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div className="hero-image">
+          <Image
+            src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=2200&q=90"
+            alt="Wedding couple walking together at their celebration"
+            fill
+            priority
+            sizes="100vw"
+          />
+          <div className="hero-image-caption">
+            <span>Save the date</span>
+            <strong>{couple.displayDate}</strong>
+          </div>
+        </div>
+      </section>
+
+      <section className="countdown-section" aria-label="Wedding countdown">
+        <div className="section-intro">
+          <p className="eyebrow">The wait is almost over</p>
+          <h2>Until we say “I do”</h2>
+        </div>
+        <div className="countdown">
+          {countdownItems.map((item) => (
+            <div className="countdown-item" key={item.label}>
+              <strong>{item.value}</strong>
+              <span>{item.label}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section id="story" className="story-section">
+        <div className="story-portrait">
+          <div className="portrait-frame">
+            <span>Our favourite chapter</span>
+          </div>
+        </div>
+        <div className="story-content">
+          <p className="eyebrow">How it all began</p>
+          <h2>A little bit of fate,<br />a lifetime of us.</h2>
+          <p className="lead">
+            Two lives, one unexpected hello, and countless memories later—we
+            cannot wait to celebrate our next chapter with you.
           </p>
+          <div className="timeline">
+            {story.map((chapter) => (
+              <article key={chapter.year}>
+                <span>{chapter.year}</span>
+                <div>
+                  <h3>{chapter.title}</h3>
+                  <p>{chapter.description}</p>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
+      </section>
+
+      <section id="events" className="events-section">
+        <div className="section-intro centered">
+          <p className="eyebrow">Mark your calendar</p>
+          <h2>The celebrations</h2>
+          <p>Come for the vows, stay for the dancing, and leave with beautiful memories.</p>
+        </div>
+        <div className="events-grid">
+          {events.map((event, index) => (
+            <article className="event-card" key={event.name}>
+              <span className="event-number">0{index + 1}</span>
+              <div className="event-icon" aria-hidden="true">{event.icon}</div>
+              <p className="event-date">{event.date}</p>
+              <h3>{event.name}</h3>
+              <p>{event.time}</p>
+              <p>{event.venue}</p>
+              {"scheduleNote" in event && event.scheduleNote && (
+                <p>{event.scheduleNote}</p>
+              )}
+              <p className="event-dress-code">
+                <span>Dress code</span>
+                {event.dressCode}
+              </p>
+              <a href={event.mapUrl} target="_blank" rel="noreferrer">
+                View location <span>↗</span>
+              </a>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section id="gallery" className="gallery-section">
+        <div className="gallery-heading">
+          <div>
+            <p className="eyebrow">Frames from our forever</p>
+            <h2>Captured in love</h2>
+          </div>
+          <a className="text-link" href={couple.albumUrl} target="_blank" rel="noreferrer">
+            View full album <span>↗</span>
           </a>
         </div>
-      </main>
-    </div>
+        <div className="gallery-grid">
+          {gallery.map((photo, index) => (
+            <button
+              className={`gallery-item gallery-item-${index + 1}`}
+              key={photo.src}
+              onClick={() => setSelectedPhoto(index)}
+              aria-label={`Open photo: ${photo.alt}`}
+            >
+              <Image
+                src={photo.src}
+                alt={photo.alt}
+                fill
+                sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw"
+              />
+              <span>{photo.caption}</span>
+            </button>
+          ))}
+        </div>
+      </section>
+
+      <section id="game" className="game-section">
+        <div className="game-copy">
+          <p className="eyebrow">Join the fun</p>
+          <h2>How well do you know the couple?</h2>
+          <p>
+            Pick a classic quiz or join the wedding shoe game and answer as one
+            half of the happy couple.
+          </p>
+          <div className="game-switcher" aria-label="Choose a game">
+            <button
+              className={activeGame === "shoes" ? "active" : ""}
+              onClick={() => setActiveGame("shoes")}
+            >
+              Shoe game
+            </button>
+            <button
+              className={activeGame === "quiz" ? "active" : ""}
+              onClick={() => setActiveGame("quiz")}
+            >
+              Couple quiz
+            </button>
+          </div>
+          <div className="game-rule">
+            <strong>{activeGame === "shoes" ? shoeGameQuestions.length : quizQuestions.length}</strong>
+            <span>quick questions<br />one true love</span>
+          </div>
+        </div>
+        <div className={`quiz-card ${activeGame === "shoes" ? "shoe-game-card" : ""}`}>
+          {activeGame === "quiz" && (
+            !quizFinished ? (
+              <div className="quiz-panel">
+                <div className="quiz-progress">
+                  <span>Question {activeQuestion + 1}</span>
+                  <span>{quizQuestions.length}</span>
+                </div>
+                <div className="progress-track">
+                  <span style={{ width: `${((activeQuestion + 1) / quizQuestions.length) * 100}%` }} />
+                </div>
+                <h3>{quizQuestions[activeQuestion].question}</h3>
+                <div className="quiz-options">
+                  {quizQuestions[activeQuestion].options.map((option, index) => (
+                    <button key={option} onClick={() => answerQuiz(index)}>
+                      <span>{String.fromCharCode(65 + index)}</span>
+                      {option}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <div className="quiz-result">
+                <p className="eyebrow">Your score</p>
+                <strong>{quizScore}/{quizQuestions.length}</strong>
+                <h3>
+                  {quizScore === quizQuestions.length
+                    ? "You know us by heart!"
+                    : quizScore >= 2
+                      ? "You are definitely inner-circle."
+                      : "More dance-floor conversations needed!"}
+                </h3>
+                <button className="button button-dark" onClick={restartQuiz}>Play again</button>
+              </div>
+            )
+          )}
+
+          {activeGame === "shoes" && !guestSide && (
+            <div className="side-picker">
+              <div className="rive-picker-title">Interactive Rive shoe game</div>
+              <p className="eyebrow">The host asks</p>
+              <h3>Which side are you cheering for?</h3>
+              <p>Choose your side, then raise the bride&apos;s or groom&apos;s shoe for every question.</p>
+              <div className="side-buttons">
+                <button onClick={() => chooseGuestSide("bride")}>
+                  <RiveCharacterPreview role="bride" />
+                  <strong>Bride&apos;s side</strong>
+                  <small>Play as {couple.partnerTwo}</small>
+                </button>
+                <button onClick={() => chooseGuestSide("groom")}>
+                  <RiveCharacterPreview role="groom" />
+                  <strong>Groom&apos;s side</strong>
+                  <small>Play as {couple.partnerOne}</small>
+                </button>
+              </div>
+            </div>
+          )}
+
+          {activeGame === "shoes" && guestSide && !shoeFinished && (
+            <div className="shoe-game">
+              <div className="shoe-game-top">
+                <span>Playing for {guestSide === "bride" ? couple.partnerTwo : couple.partnerOne}</span>
+                <button onClick={restartShoeGame}>Change side</button>
+              </div>
+              <RiveShoeGameStage
+                guestSide={guestSide}
+                raisedShoe={raisedShoe}
+                result={
+                  !shoeAnswerReady || !raisedShoe
+                    ? null
+                    : raisedShoe === shoeGameQuestions[shoeQuestion].answer
+                      ? "correct"
+                      : "incorrect"
+                }
+                onPickupComplete={() => setShoeAnswerReady(true)}
+                question={shoeGameQuestions[shoeQuestion].question}
+                questionNumber={shoeQuestion + 1}
+                totalQuestions={shoeGameQuestions.length}
+              />
+
+              {!raisedShoe ? (
+                <div className="shoe-choices">
+                  <button onClick={() => chooseShoe("bride")}>
+                    <span className="shoe-icon bride-shoe">◇</span>
+                    Raise the bride&apos;s shoe
+                  </button>
+                  <button onClick={() => chooseShoe("groom")}>
+                    <span className="shoe-icon groom-shoe">◆</span>
+                    Raise the groom&apos;s shoe
+                  </button>
+                </div>
+              ) : !shoeAnswerReady ? (
+                <div className="shoe-pickup-status" aria-live="polite">
+                  <span />
+                  {guestSide === "bride" ? couple.partnerTwo : couple.partnerOne} is picking up the shoe...
+                </div>
+              ) : (
+                <div className={`shoe-answer ${raisedShoe === shoeGameQuestions[shoeQuestion].answer ? "correct" : ""}`}>
+                  <p>
+                    {raisedShoe === shoeGameQuestions[shoeQuestion].answer
+                      ? "Perfect match! The couple agrees."
+                      : `Good guess! The couple chose ${shoeGameQuestions[shoeQuestion].answer === "bride" ? couple.partnerTwo : couple.partnerOne}.`}
+                  </p>
+                  <button className="button button-dark" onClick={advanceShoeGame}>
+                    {shoeQuestion === shoeGameQuestions.length - 1 ? "See result" : "Next question"}
+                  </button>
+                </div>
+              )}
+            </div>
+          )}
+
+          {activeGame === "shoes" && shoeFinished && (
+            <div className="quiz-result shoe-result">
+              <p className="eyebrow">Your couple match</p>
+              <strong>{shoeScore}/{shoeGameQuestions.length}</strong>
+              <h3>
+                {shoeScore === shoeGameQuestions.length
+                  ? "You think exactly like the happy couple!"
+                  : shoeScore >= 3
+                    ? "You would make an excellent wedding-game partner."
+                    : "The reception is your chance to know them better!"}
+              </h3>
+              <button className="button button-dark" onClick={restartShoeGame}>Choose another side</button>
+            </div>
+          )}
+        </div>
+      </section>
+
+      <section id="rsvp" className="rsvp-section">
+        <div className="rsvp-overlay" />
+        <div className="rsvp-copy">
+          <p className="eyebrow">Kindly reply by {couple.rsvpBy}</p>
+          <h2>Will you join our<br />happily ever after?</h2>
+          <p>Your presence would make our celebration complete.</p>
+        </div>
+        <form className="rsvp-form" onSubmit={submitRsvp}>
+          <label>
+            Full name
+            <input name="name" type="text" placeholder="Your name" maxLength={80} required />
+          </label>
+          <label>
+            Email address
+            <input name="email" type="email" placeholder="you@example.com" maxLength={120} required />
+          </label>
+          <div className="form-row">
+            <label>
+              Will you attend?
+              <select name="attendance" required defaultValue="">
+                <option value="" disabled>Select an answer</option>
+                <option value="Joyfully accepts">Joyfully accepts</option>
+                <option value="Regretfully declines">Regretfully declines</option>
+              </select>
+            </label>
+            <label>
+              Number of guests
+              <select name="guests" defaultValue="1">
+                {[1, 2, 3, 4, 5].map((count) => (
+                  <option key={count} value={count}>{count}</option>
+                ))}
+              </select>
+            </label>
+          </div>
+          <label>
+            A note for the couple
+            <textarea name="message" placeholder="Share a wish, song request, or dietary note..." maxLength={500} />
+          </label>
+          <input className="honeypot" name="company" tabIndex={-1} autoComplete="off" />
+          <button className="button button-gold" type="submit" disabled={rsvpStatus === "sending"}>
+            {rsvpStatus === "sending" ? "Sending..." : "Send RSVP"}
+          </button>
+          <p className={`form-status ${rsvpStatus}`} aria-live="polite">
+            {rsvpStatus === "success" && "Thank you! Your RSVP is safely recorded."}
+            {rsvpStatus === "error" && "Something went wrong. Please try again."}
+          </p>
+        </form>
+      </section>
+
+      <footer>
+        <Monogram />
+        <p>Made with love for our favourite people.</p>
+        <p>{couple.displayDate} · {couple.city}</p>
+      </footer>
+
+      {selectedPhoto !== null && (
+        <div className="lightbox" role="dialog" aria-modal="true" aria-label="Photo preview">
+          <button className="lightbox-close" onClick={() => setSelectedPhoto(null)} aria-label="Close photo">
+            ×
+          </button>
+          <Image
+            src={gallery[selectedPhoto].src}
+            alt={gallery[selectedPhoto].alt}
+            width={1600}
+            height={1200}
+            sizes="90vw"
+          />
+          <p>{gallery[selectedPhoto].caption}</p>
+        </div>
+      )}
+    </main>
   );
 }

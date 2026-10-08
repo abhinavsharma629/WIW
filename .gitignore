@@ -20,6 +20,9 @@
 # production
 /build
 
+# locally stored RSVP responses
+/data/*.csv
+
 # misc
 .DS_Store
 *.pem

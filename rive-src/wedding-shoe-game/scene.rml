@@ -1,0 +1,710 @@
+<Rive version="1" kind="fragment">
+    <Artboard defaultStateMachineId="0:300" viewModelId="0:400" viewModelInstanceId="0:401"
+              clip="true" width="900" height="600" styleId="0:5" name="Wedding Shoe Game" id="0:2">
+        <LayoutComponentStyle name="Artboard Style" id="0:5"/>
+
+        <Fill name="Background">
+            <LinearGradient startX="0" startY="0" endX="900" endY="600" name="Stage Gradient">
+                <GradientStop colorValue="FFF4F0EA" position="0"/>
+                <GradientStop colorValue="FFE8E1D8" position="0.52"/>
+                <GradientStop colorValue="FFD4C9BC" position="1"/>
+            </LinearGradient>
+        </Fill>
+
+        <!-- Confetti is declared first so it paints above the scene. -->
+        <Node name="Confetti" id="0:160">
+            <Shape x="115" y="130" opacity="0" rotation="0.3" name="Confetti 1" id="0:161">
+                <Rectangle width="8" height="20" originX="0.5" originY="0.5" name="Path"/>
+                <Fill name="Fill"><SolidColor colorValue="FFFFD36A" name="Color"/></Fill>
+            </Shape>
+            <Shape x="205" y="185" opacity="0" rotation="-0.4" name="Confetti 2" id="0:162">
+                <Rectangle width="8" height="20" originX="0.5" originY="0.5" name="Path"/>
+                <Fill name="Fill"><SolidColor colorValue="FFE899A8" name="Color"/></Fill>
+            </Shape>
+            <Shape x="305" y="115" opacity="0" rotation="0.6" name="Confetti 3" id="0:163">
+                <Star width="18" height="18" points="5" innerRadius="0.46" originX="0.5" originY="0.5" name="Path"/>
+                <Fill name="Fill"><SolidColor colorValue="FFF8E7B0" name="Color"/></Fill>
+            </Shape>
+            <Shape x="595" y="120" opacity="0" rotation="-0.2" name="Confetti 4" id="0:164">
+                <Rectangle width="8" height="20" originX="0.5" originY="0.5" name="Path"/>
+                <Fill name="Fill"><SolidColor colorValue="FFFFD36A" name="Color"/></Fill>
+            </Shape>
+            <Shape x="695" y="180" opacity="0" rotation="0.5" name="Confetti 5" id="0:165">
+                <Rectangle width="8" height="20" originX="0.5" originY="0.5" name="Path"/>
+                <Fill name="Fill"><SolidColor colorValue="FFE899A8" name="Color"/></Fill>
+            </Shape>
+            <Shape x="790" y="125" opacity="0" rotation="-0.6" name="Confetti 6" id="0:166">
+                <Star width="18" height="18" points="5" innerRadius="0.46" originX="0.5" originY="0.5" name="Path"/>
+                <Fill name="Fill"><SolidColor colorValue="FFF8E7B0" name="Color"/></Fill>
+            </Shape>
+        </Node>
+
+        <!-- Animated footwear stays above the couple so it remains visible in the raised hand. -->
+        <Node x="450" y="515" opacity="0" name="Pickup Footwear" id="0:130">
+            <Image assetId="0:706" opacity="1" name="Bride Shoe" id="0:131"/>
+            <Image assetId="0:707" opacity="0" name="Groom Shoe" id="0:132"/>
+        </Node>
+
+        <!-- The host stays visible at the edge while the couple owns the centre. -->
+        <Node x="105" y="320" scaleX="0.55" scaleY="0.55" opacity="0" name="Host" id="0:120">
+            <Node x="34" y="-45" rotation="0" name="Host Microphone Arm" id="0:121">
+                <Shape x="0" y="42" rotation="-0.2" name="Arm">
+                    <Rectangle width="18" height="86" cornerRadiusTL="9" originX="0.5" originY="0" name="Path"/>
+                    <Fill name="Fill"><SolidColor colorValue="FFB97955" name="Color"/></Fill>
+                </Shape>
+                <Shape x="-9" y="2" rotation="-0.2" name="Microphone">
+                    <Rectangle width="10" height="62" cornerRadiusTL="5" originX="0.5" originY="0" name="Path"/>
+                    <Fill name="Fill"><SolidColor colorValue="FF25242A" name="Color"/></Fill>
+                </Shape>
+                <Shape x="-15" y="-2" name="Mic Head">
+                    <Ellipse width="24" height="24" originX="0.5" originY="0.5" name="Path"/>
+                    <Fill name="Fill"><SolidColor colorValue="FF111116" name="Color"/></Fill>
+                    <Stroke thickness="3" name="Ring"><SolidColor colorValue="FFC6A15B" name="Color"/></Stroke>
+                </Shape>
+            </Node>
+            <Shape x="0" y="72" name="Suit">
+                <PointsPath isClosed="true" isClockwise="true" name="Path">
+                    <StraightVertex x="-62" y="-42" radius="15"/>
+                    <StraightVertex x="62" y="-42" radius="15"/>
+                    <StraightVertex x="48" y="122" radius="8"/>
+                    <StraightVertex x="-48" y="122" radius="8"/>
+                </PointsPath>
+                <Fill name="Fill"><SolidColor colorValue="FF101725" name="Color"/></Fill>
+                <Stroke thickness="3" name="Edge"><SolidColor colorValue="FFB68D4C" name="Color"/></Stroke>
+            </Shape>
+            <Shape x="0" y="36" name="Shirt">
+                <Triangle width="42" height="62" originX="0.5" originY="0.5" name="Path"/>
+                <Fill name="Fill"><SolidColor colorValue="FFF5EEE4" name="Color"/></Fill>
+            </Shape>
+            <Shape x="0" y="29" name="Tie">
+                <PointsPath isClosed="true" isClockwise="true" name="Path">
+                    <StraightVertex x="-8" y="-8"/>
+                    <StraightVertex x="8" y="-8"/>
+                    <StraightVertex x="4" y="38"/>
+                    <StraightVertex x="0" y="48"/>
+                    <StraightVertex x="-4" y="38"/>
+                </PointsPath>
+                <Fill name="Fill"><SolidColor colorValue="FFC6A15B" name="Color"/></Fill>
+            </Shape>
+            <Node y="-48" name="Host Head" id="0:122">
+                <Shape name="Face">
+                    <Ellipse width="82" height="98" originX="0.5" originY="0.5" name="Path"/>
+                    <Fill name="Fill"><SolidColor colorValue="FFB97955" name="Color"/></Fill>
+                </Shape>
+                <Shape y="-30" rotation="-0.08" name="Hair">
+                    <Ellipse width="88" height="45" originX="0.5" originY="0.5" name="Path"/>
+                    <Fill name="Fill"><SolidColor colorValue="FF241917" name="Color"/></Fill>
+                </Shape>
+                <Shape x="-16" y="-4" name="Left Eye">
+                    <Ellipse width="7" height="9" originX="0.5" originY="0.5" name="Path"/>
+                    <Fill name="Fill"><SolidColor colorValue="FF241917" name="Color"/></Fill>
+                </Shape>
+                <Shape x="16" y="-4" name="Right Eye">
+                    <Ellipse width="7" height="9" originX="0.5" originY="0.5" name="Path"/>
+                    <Fill name="Fill"><SolidColor colorValue="FF241917" name="Color"/></Fill>
+                </Shape>
+                <Shape y="20" name="Smile">
+                    <PointsPath isClockwise="true" name="Path">
+                        <CubicMirroredVertex x="-16" y="-2" rotation="0" distance="6"/>
+                        <CubicMirroredVertex x="0" y="7" rotation="0" distance="6"/>
+                        <CubicMirroredVertex x="16" y="-2" rotation="0" distance="6"/>
+                    </PointsPath>
+                    <Stroke thickness="4" cap="round" name="Stroke"><SolidColor colorValue="FF743E39" name="Color"/></Stroke>
+                </Shape>
+            </Node>
+        </Node>
+
+        <!-- Bride seated on the left, facing away from the groom. -->
+        <Node x="385" y="410" scaleX="1.13" scaleY="1.13" name="Bride" id="0:100">
+            <Node x="-65" y="-58" rotation="0.2" name="Bride Pickup Arm" id="0:101">
+                <Image y="43" assetId="0:702" name="Rendered Bride Upper Arm"/>
+                <Node y="68" rotation="0" name="Bride Forearm" id="0:103">
+                    <Image y="52" assetId="0:703" name="Rendered Bride Forearm"/>
+                    <Shape opacity="0" name="Elbow">
+                        <Ellipse width="20" height="20" originX="0.5" originY="0.5" name="Path"/>
+                        <Fill name="Fill"><SolidColor colorValue="FFB97955" name="Color"/></Fill>
+                    </Shape>
+                    <Shape opacity="0" name="Forearm">
+                        <Rectangle width="17" height="66" cornerRadiusTL="8" originX="0.5" originY="0" name="Path"/>
+                        <Fill name="Fill"><SolidColor colorValue="FFB97955" name="Color"/></Fill>
+                    </Shape>
+                    <Shape y="69" opacity="0" name="Hand">
+                        <Ellipse width="25" height="29" originX="0.5" originY="0.5" name="Path"/>
+                        <Fill name="Fill"><SolidColor colorValue="FFB97955" name="Color"/></Fill>
+                    </Shape>
+                    <Shape y="62" opacity="0" name="Bangle">
+                        <Ellipse width="28" height="11" originX="0.5" originY="0.5" name="Path"/>
+                        <Stroke thickness="4" name="Stroke"><SolidColor colorValue="FFE4C06C" name="Color"/></Stroke>
+                    </Shape>
+                </Node>
+                <Shape opacity="0" name="Shoulder">
+                    <Ellipse width="23" height="23" originX="0.5" originY="0.5" name="Path"/>
+                    <Fill name="Fill"><SolidColor colorValue="FFB97955" name="Color"/></Fill>
+                </Shape>
+                <Shape opacity="0" name="Upper Arm">
+                    <Rectangle width="20" height="70" cornerRadiusTL="10" originX="0.5" originY="0" name="Path"/>
+                    <Fill name="Fill"><SolidColor colorValue="FFB97955" name="Color"/></Fill>
+                </Shape>
+            </Node>
+            <Image x="-5" y="-8" scaleX="0.85" scaleY="0.85" assetId="0:700" name="Rendered Bride"/>
+            <Node x="-34" y="-142" opacity="0" name="Bride Head" id="0:102">
+                <Shape x="-25" y="-5" name="Visible Profile Eye">
+                    <Ellipse width="7" height="9" originX="0.5" originY="0.5" name="Path"/>
+                    <Fill name="Fill"><SolidColor colorValue="FF251817" name="Color"/></Fill>
+                </Shape>
+                <Shape x="-40" y="5" name="Visible Nose">
+                    <Triangle width="18" height="16" rotation="-1.5708" originX="0.5" originY="0.5" name="Path"/>
+                    <Fill name="Fill"><SolidColor colorValue="FFB97955" name="Color"/></Fill>
+                </Shape>
+                <Shape x="-30" y="24" rotation="-0.2" name="Visible Smile">
+                    <Rectangle width="18" height="4" cornerRadiusTL="2" originX="0.5" originY="0.5" name="Path"/>
+                    <Fill name="Fill"><SolidColor colorValue="FF9B4150" name="Color"/></Fill>
+                </Shape>
+                <Shape name="Face">
+                    <Ellipse width="78" height="96" originX="0.5" originY="0.5" name="Path"/>
+                    <Fill name="Fill"><SolidColor colorValue="FFB97955" name="Color"/></Fill>
+                </Shape>
+                <Shape x="8" y="-15" rotation="0.15" name="Hair">
+                    <Ellipse width="92" height="114" originX="0.5" originY="0.5" name="Path"/>
+                    <Fill name="Fill"><SolidColor colorValue="FF2A1A19" name="Color"/></Fill>
+                </Shape>
+                <Shape x="-25" y="-5" name="Profile Eye">
+                    <Ellipse width="7" height="9" originX="0.5" originY="0.5" name="Path"/>
+                    <Fill name="Fill"><SolidColor colorValue="FF251817" name="Color"/></Fill>
+                </Shape>
+                <Shape x="-42" y="5" name="Nose">
+                    <Triangle width="18" height="16" rotation="-1.5708" originX="0.5" originY="0.5" name="Path"/>
+                    <Fill name="Fill"><SolidColor colorValue="FFB97955" name="Color"/></Fill>
+                </Shape>
+                <Shape x="-30" y="24" rotation="-0.2" name="Smile">
+                    <Rectangle width="18" height="4" cornerRadiusTL="2" originX="0.5" originY="0.5" name="Path"/>
+                    <Fill name="Fill"><SolidColor colorValue="FF9B4150" name="Color"/></Fill>
+                </Shape>
+                <Shape x="18" y="-42" name="Hair Ornament">
+                    <Star width="23" height="23" points="8" innerRadius="0.65" originX="0.5" originY="0.5" name="Path"/>
+                    <Fill name="Fill"><SolidColor colorValue="FFF0D996" name="Color"/></Fill>
+                </Shape>
+            </Node>
+            <Shape x="-10" y="-92" opacity="0" name="Bride Neck">
+                <Rectangle width="28" height="45" cornerRadiusTL="13" originX="0.5" originY="0.5" name="Path"/>
+                <Fill name="Fill"><SolidColor colorValue="FFB97955" name="Color"/></Fill>
+            </Shape>
+            <Shape x="0" y="-61" opacity="0" name="Lehenga Blouse">
+                <Rectangle width="116" height="88" cornerRadiusTL="22" originX="0.5" originY="0.5" name="Path"/>
+                <Fill name="Fill"><LinearGradient startX="0" startY="-44" endX="0" endY="44" name="Gradient">
+                    <GradientStop colorValue="FFFFFCF6" position="0"/>
+                    <GradientStop colorValue="FFE8DDD0" position="1"/>
+                </LinearGradient></Fill>
+                <Stroke thickness="4" name="Gold Edge"><SolidColor colorValue="FFC7A96D" name="Color"/></Stroke>
+            </Shape>
+            <Shape x="-4" y="65" opacity="0" name="Lehenga Skirt">
+                <PointsPath isClosed="true" isClockwise="true" name="Path">
+                    <StraightVertex x="-62" y="-78" radius="18"/>
+                    <StraightVertex x="62" y="-78" radius="18"/>
+                    <StraightVertex x="116" y="112" radius="8"/>
+                    <StraightVertex x="-128" y="112" radius="8"/>
+                </PointsPath>
+                <Fill name="Fill"><LinearGradient startX="0" startY="-80" endX="0" endY="112" name="Gradient">
+                    <GradientStop colorValue="FFF9F3EA" position="0"/>
+                    <GradientStop colorValue="FFDED1C2" position="1"/>
+                </LinearGradient></Fill>
+                <Stroke thickness="5" name="Gold Hem"><SolidColor colorValue="FFC7A96D" name="Color"/></Stroke>
+            </Shape>
+            <Shape x="-10" y="78" opacity="0" name="Lehenga Pattern">
+                <Star width="42" height="42" points="8" innerRadius="0.72" originX="0.5" originY="0.5" name="Path"/>
+                <Stroke thickness="3" name="Stroke"><SolidColor colorValue="FFDDBA65" name="Color"/></Stroke>
+            </Shape>
+            <Shape x="-67" y="-44" rotation="-0.25" opacity="0" name="Dupatta">
+                <Rectangle width="44" height="230" cornerRadiusTL="20" originX="0.5" originY="0.5" name="Path"/>
+                <Fill name="Fill"><SolidColor colorValue="88FFF9EF" name="Color"/></Fill>
+                <Stroke thickness="3" name="Gold Border"><SolidColor colorValue="FFC7A96D" name="Color"/></Stroke>
+            </Shape>
+            <Node x="24" y="8" name="Bride Chair">
+                <Shape y="-20" name="Chair Back">
+                    <Rectangle width="25" height="250" cornerRadiusTL="12" originX="0.5" originY="0.5" name="Path"/>
+                    <Fill name="Fill"><SolidColor colorValue="FFF8F7F2" name="Color"/></Fill>
+                    <Stroke thickness="3" name="Chair Edge"><SolidColor colorValue="FFC8C4BC" name="Color"/></Stroke>
+                </Shape>
+                <Shape x="35" y="80" name="Chair Seat">
+                    <Rectangle width="125" height="25" cornerRadiusTL="10" originX="0.5" originY="0.5" name="Path"/>
+                    <Fill name="Fill"><SolidColor colorValue="FFF8F7F2" name="Color"/></Fill>
+                    <Stroke thickness="4" name="Edge"><SolidColor colorValue="FFC8C4BC" name="Color"/></Stroke>
+                </Shape>
+            </Node>
+        </Node>
+
+        <!-- Groom seated on the right, facing the opposite direction. -->
+        <Node x="515" y="410" scaleX="1.13" scaleY="1.13" name="Groom" id="0:110">
+            <Node x="65" y="-58" rotation="-0.2" name="Groom Pickup Arm" id="0:111">
+                <Image y="44" assetId="0:704" name="Rendered Groom Upper Arm"/>
+                <Node y="68" rotation="0" name="Groom Forearm" id="0:113">
+                    <Image y="53" assetId="0:705" name="Rendered Groom Forearm"/>
+                    <Shape opacity="0" name="Elbow">
+                        <Ellipse width="27" height="27" originX="0.5" originY="0.5" name="Path"/>
+                        <Fill name="Fill"><SolidColor colorValue="FFF3EEE6" name="Color"/></Fill>
+                        <Stroke thickness="2" name="Elbow Edge"><SolidColor colorValue="FFC9C0B5" name="Color"/></Stroke>
+                    </Shape>
+                    <Shape opacity="0" name="Shirt Forearm">
+                        <Rectangle width="23" height="66" cornerRadiusTL="10" originX="0.5" originY="0" name="Path"/>
+                        <Fill name="Fill"><SolidColor colorValue="FFF3EEE6" name="Color"/></Fill>
+                        <Stroke thickness="2" name="Cuff Edge"><SolidColor colorValue="FFC9C0B5" name="Color"/></Stroke>
+                    </Shape>
+                    <Shape y="69" opacity="0" name="Hand">
+                        <Ellipse width="25" height="29" originX="0.5" originY="0.5" name="Path"/>
+                        <Fill name="Fill"><SolidColor colorValue="FFB97955" name="Color"/></Fill>
+                    </Shape>
+                </Node>
+                <Shape opacity="0" name="Shoulder">
+                    <Ellipse width="29" height="29" originX="0.5" originY="0.5" name="Path"/>
+                    <Fill name="Fill"><SolidColor colorValue="FFF3EEE6" name="Color"/></Fill>
+                    <Stroke thickness="2" name="Shoulder Edge"><SolidColor colorValue="FFC9C0B5" name="Color"/></Stroke>
+                </Shape>
+                <Shape opacity="0" name="Shirt Upper Arm">
+                    <Rectangle width="25" height="70" cornerRadiusTL="11" originX="0.5" originY="0" name="Path"/>
+                    <Fill name="Fill"><SolidColor colorValue="FFF3EEE6" name="Color"/></Fill>
+                    <Stroke thickness="2" name="Sleeve Edge"><SolidColor colorValue="FFC9C0B5" name="Color"/></Stroke>
+                </Shape>
+            </Node>
+            <Image x="3" y="-8" scaleX="0.84" scaleY="0.84" assetId="0:701" name="Rendered Groom"/>
+            <Node x="34" y="-142" opacity="0" name="Groom Head" id="0:112">
+                <Shape x="25" y="-5" name="Visible Profile Eye">
+                    <Ellipse width="7" height="9" originX="0.5" originY="0.5" name="Path"/>
+                    <Fill name="Fill"><SolidColor colorValue="FF251817" name="Color"/></Fill>
+                </Shape>
+                <Shape x="40" y="5" name="Visible Nose">
+                    <Triangle width="18" height="16" rotation="1.5708" originX="0.5" originY="0.5" name="Path"/>
+                    <Fill name="Fill"><SolidColor colorValue="FFB97955" name="Color"/></Fill>
+                </Shape>
+                <Shape x="21" y="25" rotation="0.2" name="Visible Smile">
+                    <Rectangle width="18" height="4" cornerRadiusTL="2" originX="0.5" originY="0.5" name="Path"/>
+                    <Fill name="Fill"><SolidColor colorValue="FF753B37" name="Color"/></Fill>
+                </Shape>
+                <Shape name="Face">
+                    <Ellipse width="78" height="96" originX="0.5" originY="0.5" name="Path"/>
+                    <Fill name="Fill"><SolidColor colorValue="FFB97955" name="Color"/></Fill>
+                </Shape>
+                <Shape x="-7" y="-29" rotation="-0.08" name="Hair">
+                    <Ellipse width="90" height="50" originX="0.5" originY="0.5" name="Path"/>
+                    <Fill name="Fill"><SolidColor colorValue="FF241917" name="Color"/></Fill>
+                </Shape>
+                <Shape x="25" y="-5" name="Profile Eye">
+                    <Ellipse width="7" height="9" originX="0.5" originY="0.5" name="Path"/>
+                    <Fill name="Fill"><SolidColor colorValue="FF251817" name="Color"/></Fill>
+                </Shape>
+                <Shape x="42" y="5" name="Nose">
+                    <Triangle width="18" height="16" rotation="1.5708" originX="0.5" originY="0.5" name="Path"/>
+                    <Fill name="Fill"><SolidColor colorValue="FFB97955" name="Color"/></Fill>
+                </Shape>
+                <Shape x="21" y="25" rotation="0.2" name="Smile">
+                    <Rectangle width="18" height="4" cornerRadiusTL="2" originX="0.5" originY="0.5" name="Path"/>
+                    <Fill name="Fill"><SolidColor colorValue="FF753B37" name="Color"/></Fill>
+                </Shape>
+                <Shape x="8" y="26" name="Beard">
+                    <PointsPath isClosed="true" isClockwise="true" name="Path">
+                        <StraightVertex x="-22" y="-2"/>
+                        <StraightVertex x="25" y="-2"/>
+                        <StraightVertex x="17" y="25" radius="9"/>
+                        <StraightVertex x="-12" y="25" radius="9"/>
+                    </PointsPath>
+                    <Fill name="Fill"><SolidColor colorValue="CC2C1E1A" name="Color"/></Fill>
+                </Shape>
+            </Node>
+            <Shape x="10" y="-92" opacity="0" name="Groom Neck">
+                <Rectangle width="30" height="45" cornerRadiusTL="13" originX="0.5" originY="0.5" name="Path"/>
+                <Fill name="Fill"><SolidColor colorValue="FFB97955" name="Color"/></Fill>
+            </Shape>
+            <Shape x="0" y="-45" opacity="0" name="Suit Jacket">
+                <Rectangle width="124" height="130" cornerRadiusTL="22" originX="0.5" originY="0.5" name="Path"/>
+                <Fill name="Fill"><LinearGradient startX="-62" startY="-65" endX="62" endY="65" name="Gradient">
+                    <GradientStop colorValue="FF262626" position="0"/>
+                    <GradientStop colorValue="FF111111" position="1"/>
+                </LinearGradient></Fill>
+                <Stroke thickness="3" name="Edge"><SolidColor colorValue="FF55524D" name="Color"/></Stroke>
+            </Shape>
+            <Shape x="0" y="-72" opacity="0" name="Shirt">
+                <Triangle width="54" height="72" originX="0.5" originY="0.5" name="Path"/>
+                <Fill name="Fill"><SolidColor colorValue="FFF7F1E8" name="Color"/></Fill>
+            </Shape>
+            <Shape y="-72" opacity="0" name="Bow Tie">
+                <PointsPath isClosed="true" isClockwise="true" name="Path">
+                    <StraightVertex x="-28" y="-13"/>
+                    <StraightVertex x="-4" y="0"/>
+                    <StraightVertex x="-28" y="13"/>
+                    <StraightVertex x="0" y="5"/>
+                    <StraightVertex x="28" y="13"/>
+                    <StraightVertex x="4" y="0"/>
+                    <StraightVertex x="28" y="-13"/>
+                    <StraightVertex x="0" y="-5"/>
+                </PointsPath>
+                <Fill name="Fill"><SolidColor colorValue="FF8C223A" name="Color"/></Fill>
+            </Shape>
+            <Shape x="-33" y="68" rotation="0.35" opacity="0" name="Left Leg">
+                <Rectangle width="46" height="150" cornerRadiusTL="18" originX="0.5" originY="0" name="Path"/>
+                <Fill name="Fill"><SolidColor colorValue="FF242424" name="Color"/></Fill>
+            </Shape>
+            <Shape x="38" y="68" rotation="-0.12" opacity="0" name="Right Leg">
+                <Rectangle width="46" height="150" cornerRadiusTL="18" originX="0.5" originY="0" name="Path"/>
+                <Fill name="Fill"><SolidColor colorValue="FF242424" name="Color"/></Fill>
+            </Shape>
+            <Node x="-24" y="8" name="Groom Chair">
+                <Shape y="-20" name="Chair Back">
+                    <Rectangle width="25" height="250" cornerRadiusTL="12" originX="0.5" originY="0.5" name="Path"/>
+                    <Fill name="Fill"><SolidColor colorValue="FFF8F7F2" name="Color"/></Fill>
+                    <Stroke thickness="3" name="Chair Edge"><SolidColor colorValue="FFC8C4BC" name="Color"/></Stroke>
+                </Shape>
+                <Shape x="-35" y="80" name="Chair Seat">
+                    <Rectangle width="125" height="25" cornerRadiusTL="10" originX="0.5" originY="0.5" name="Path"/>
+                    <Fill name="Fill"><SolidColor colorValue="FFF8F7F2" name="Color"/></Fill>
+                    <Stroke thickness="4" name="Edge"><SolidColor colorValue="FFC8C4BC" name="Color"/></Stroke>
+                </Shape>
+            </Node>
+        </Node>
+
+        <!-- Audience silhouettes. Arms are separate pivots for applause. -->
+        <Node x="190" y="420" scaleX="0.55" scaleY="0.55" name="Audience" id="0:140">
+            <Node x="80" name="Guest 1">
+                <Node x="-18" y="-42" rotation="0.45" opacity="0" name="Left Clap Arm" id="0:141">
+                    <Shape y="-28"><Rectangle width="14" height="58" cornerRadiusTL="7" originX="0.5" originY="1" name="Path"/><Fill name="F"><SolidColor colorValue="FFA96F4D" name="C"/></Fill></Shape>
+                </Node>
+                <Node x="18" y="-42" rotation="-0.45" opacity="0" name="Right Clap Arm" id="0:142">
+                    <Shape y="-28"><Rectangle width="14" height="58" cornerRadiusTL="7" originX="0.5" originY="1" name="Path"/><Fill name="F"><SolidColor colorValue="FFA96F4D" name="C"/></Fill></Shape>
+                </Node>
+                <Shape y="-58"><Ellipse width="45" height="45" originX="0.5" originY="0.5" name="P"/><Fill name="F"><SolidColor colorValue="FF86543E" name="C"/></Fill></Shape>
+                <Shape y="-8"><Rectangle width="82" height="92" cornerRadiusTL="28" originX="0.5" originY="0.5" name="P"/><Fill name="F"><SolidColor colorValue="FF17121A" name="C"/></Fill></Shape>
+            </Node>
+            <Node x="250" scaleX="1.12" scaleY="1.12" name="Guest 2">
+                <Node x="-18" y="-42" rotation="0.45" opacity="0" name="Left Clap Arm" id="0:143">
+                    <Shape y="-28"><Rectangle width="14" height="58" cornerRadiusTL="7" originX="0.5" originY="1" name="Path"/><Fill name="F"><SolidColor colorValue="FFB97955" name="C"/></Fill></Shape>
+                </Node>
+                <Node x="18" y="-42" rotation="-0.45" opacity="0" name="Right Clap Arm" id="0:144">
+                    <Shape y="-28"><Rectangle width="14" height="58" cornerRadiusTL="7" originX="0.5" originY="1" name="Path"/><Fill name="F"><SolidColor colorValue="FFB97955" name="C"/></Fill></Shape>
+                </Node>
+                <Shape y="-58"><Ellipse width="45" height="45" originX="0.5" originY="0.5" name="P"/><Fill name="F"><SolidColor colorValue="FF9E6347" name="C"/></Fill></Shape>
+                <Shape y="-8"><Rectangle width="82" height="92" cornerRadiusTL="28" originX="0.5" originY="0.5" name="P"/><Fill name="F"><SolidColor colorValue="FF351824" name="C"/></Fill></Shape>
+            </Node>
+            <Node x="650" scaleX="1.12" scaleY="1.12" name="Guest 3">
+                <Node x="-18" y="-42" rotation="0.45" opacity="0" name="Left Clap Arm" id="0:145">
+                    <Shape y="-28"><Rectangle width="14" height="58" cornerRadiusTL="7" originX="0.5" originY="1" name="Path"/><Fill name="F"><SolidColor colorValue="FFB97955" name="C"/></Fill></Shape>
+                </Node>
+                <Node x="18" y="-42" rotation="-0.45" opacity="0" name="Right Clap Arm" id="0:146">
+                    <Shape y="-28"><Rectangle width="14" height="58" cornerRadiusTL="7" originX="0.5" originY="1" name="Path"/><Fill name="F"><SolidColor colorValue="FFB97955" name="C"/></Fill></Shape>
+                </Node>
+                <Shape y="-58"><Ellipse width="45" height="45" originX="0.5" originY="0.5" name="P"/><Fill name="F"><SolidColor colorValue="FF9E6347" name="C"/></Fill></Shape>
+                <Shape y="-8"><Rectangle width="82" height="92" cornerRadiusTL="28" originX="0.5" originY="0.5" name="P"/><Fill name="F"><SolidColor colorValue="FF351824" name="C"/></Fill></Shape>
+            </Node>
+            <Node x="820" name="Guest 4">
+                <Node x="-18" y="-42" rotation="0.45" opacity="0" name="Left Clap Arm" id="0:147">
+                    <Shape y="-28"><Rectangle width="14" height="58" cornerRadiusTL="7" originX="0.5" originY="1" name="Path"/><Fill name="F"><SolidColor colorValue="FFA96F4D" name="C"/></Fill></Shape>
+                </Node>
+                <Node x="18" y="-42" rotation="-0.45" opacity="0" name="Right Clap Arm" id="0:148">
+                    <Shape y="-28"><Rectangle width="14" height="58" cornerRadiusTL="7" originX="0.5" originY="1" name="Path"/><Fill name="F"><SolidColor colorValue="FFA96F4D" name="C"/></Fill></Shape>
+                </Node>
+                <Shape y="-58"><Ellipse width="45" height="45" originX="0.5" originY="0.5" name="P"/><Fill name="F"><SolidColor colorValue="FF86543E" name="C"/></Fill></Shape>
+                <Shape y="-8"><Rectangle width="82" height="92" cornerRadiusTL="28" originX="0.5" originY="0.5" name="P"/><Fill name="F"><SolidColor colorValue="FF17121A" name="C"/></Fill></Shape>
+            </Node>
+        </Node>
+
+        <!-- Decorative stage layers, declared late so they remain behind the people. -->
+        <Shape x="450" y="65" name="Question Screen">
+            <Rectangle width="440" height="108" cornerRadiusTL="18" originX="0.5" originY="0.5" name="Path"/>
+            <Fill name="Fill"><SolidColor colorValue="EEFFFCF7" name="Color"/></Fill>
+            <Stroke thickness="3" name="Gold Edge"><SolidColor colorValue="FFB8AEA1" name="Color"/></Stroke>
+        </Shape>
+        <Shape x="450" y="305" opacity="0" name="Floral Arch">
+            <Ellipse width="690" height="490" originX="0.5" originY="0.5" name="Path"/>
+            <Stroke thickness="18" name="Greenery"><SolidColor colorValue="FF4D653D" name="Color"/></Stroke>
+            <Stroke thickness="7" name="Gold"><SolidColor colorValue="FFC9A65C" name="Color"/></Stroke>
+        </Shape>
+
+        <Node name="Wedding Stage">
+            <Shape x="450" y="438" name="Raised Platform">
+                <Rectangle width="650" height="105" cornerRadiusTL="16" originX="0.5" originY="0.5" name="Path"/>
+                <Fill name="Fill"><LinearGradient startX="0" startY="-52" endX="0" endY="52" name="Gradient">
+                    <GradientStop colorValue="FFE9DDD0" position="0"/>
+                    <GradientStop colorValue="FFC3AA92" position="1"/>
+                </LinearGradient></Fill>
+                <Stroke thickness="6" name="Platform Edge"><SolidColor colorValue="FFC4A56C" name="Color"/></Stroke>
+            </Shape>
+            <Shape x="450" y="300" opacity="0.9" name="Stage Backdrop">
+                <Rectangle width="610" height="275" cornerRadiusTL="34" originX="0.5" originY="0.5" name="Path"/>
+                <Fill name="Fill"><LinearGradient startX="0" startY="-138" endX="0" endY="138" name="Gradient">
+                    <GradientStop colorValue="FFF7EFE6" position="0"/>
+                    <GradientStop colorValue="FFE5D2C1" position="1"/>
+                </LinearGradient></Fill>
+                <Stroke thickness="5" name="Backdrop Edge"><SolidColor colorValue="FFB79560" name="Color"/></Stroke>
+            </Shape>
+            <Shape x="245" y="290" name="Left Floral Column">
+                <Ellipse width="78" height="250" originX="0.5" originY="0.5" name="Path"/>
+                <Fill name="Fill"><SolidColor colorValue="FF718064" name="Color"/></Fill>
+            </Shape>
+            <Shape x="655" y="290" name="Right Floral Column">
+                <Ellipse width="78" height="250" originX="0.5" originY="0.5" name="Path"/>
+                <Fill name="Fill"><SolidColor colorValue="FF718064" name="Color"/></Fill>
+            </Shape>
+            <Shape x="245" y="235" name="Left Flowers">
+                <Ellipse width="104" height="92" originX="0.5" originY="0.5" name="Path"/>
+                <Fill name="Fill"><SolidColor colorValue="FFE8C7C1" name="Color"/></Fill>
+            </Shape>
+            <Shape x="655" y="235" name="Right Flowers">
+                <Ellipse width="104" height="92" originX="0.5" originY="0.5" name="Path"/>
+                <Fill name="Fill"><SolidColor colorValue="FFE8C7C1" name="Color"/></Fill>
+            </Shape>
+            <Shape x="315" y="205" opacity="0.62" name="Left Spotlight">
+                <Triangle width="190" height="310" rotation="3.14159" originX="0.5" originY="0.5" name="Path"/>
+                <Fill name="Fill"><SolidColor colorValue="44FFE4A8" name="Color"/></Fill>
+            </Shape>
+            <Shape x="585" y="205" opacity="0.62" name="Right Spotlight">
+                <Triangle width="190" height="310" rotation="3.14159" originX="0.5" originY="0.5" name="Path"/>
+                <Fill name="Fill"><SolidColor colorValue="44FFE4A8" name="Color"/></Fill>
+            </Shape>
+        </Node>
+
+        <Node name="Outdoor Reception">
+            <Shape x="450" y="276" name="Pavilion">
+                <Rectangle width="900" height="170" originX="0.5" originY="0.5" name="Path"/>
+                <Fill name="Fill"><SolidColor colorValue="FF8D6C52" name="Color"/></Fill>
+            </Shape>
+            <Shape x="450" y="214" name="Pavilion Roof">
+                <Rectangle width="900" height="38" originX="0.5" originY="0.5" name="Path"/>
+                <Fill name="Fill"><SolidColor colorValue="FF493B32" name="Color"/></Fill>
+            </Shape>
+            <Shape x="145" y="175" opacity="0.72" name="Left Trees">
+                <Ellipse width="330" height="205" originX="0.5" originY="0.5" name="Path"/>
+                <Fill name="Fill"><SolidColor colorValue="FF6F7962" name="Color"/></Fill>
+            </Shape>
+            <Shape x="755" y="175" opacity="0.72" name="Right Trees">
+                <Ellipse width="330" height="205" originX="0.5" originY="0.5" name="Path"/>
+                <Fill name="Fill"><SolidColor colorValue="FF6F7962" name="Color"/></Fill>
+            </Shape>
+            <Shape x="238" y="405" opacity="0.92" name="Left Guest Table">
+                <Ellipse width="235" height="54" originX="0.5" originY="0.5" name="Path"/>
+                <Fill name="Fill"><SolidColor colorValue="FFF5F1E9" name="Color"/></Fill>
+            </Shape>
+            <Shape x="662" y="405" opacity="0.92" name="Right Guest Table">
+                <Ellipse width="235" height="54" originX="0.5" originY="0.5" name="Path"/>
+                <Fill name="Fill"><SolidColor colorValue="FFF5F1E9" name="Color"/></Fill>
+            </Shape>
+            <Shape x="450" y="152" rotation="0.04" name="Light Cable">
+                <Rectangle width="870" height="4" cornerRadiusTL="2" originX="0.5" originY="0.5" name="Path"/>
+                <Fill name="Fill"><SolidColor colorValue="FF62564B" name="Color"/></Fill>
+            </Shape>
+            <Shape x="95" y="165" name="Bulb 1"><Ellipse width="18" height="18" originX="0.5" originY="0.5" name="Path"/><Fill name="Fill"><SolidColor colorValue="FFFFE4A8" name="Color"/></Fill></Shape>
+            <Shape x="210" y="158" name="Bulb 2"><Ellipse width="18" height="18" originX="0.5" originY="0.5" name="Path"/><Fill name="Fill"><SolidColor colorValue="FFFFE4A8" name="Color"/></Fill></Shape>
+            <Shape x="330" y="154" name="Bulb 3"><Ellipse width="18" height="18" originX="0.5" originY="0.5" name="Path"/><Fill name="Fill"><SolidColor colorValue="FFFFE4A8" name="Color"/></Fill></Shape>
+            <Shape x="450" y="151" name="Bulb 4"><Ellipse width="18" height="18" originX="0.5" originY="0.5" name="Path"/><Fill name="Fill"><SolidColor colorValue="FFFFE4A8" name="Color"/></Fill></Shape>
+            <Shape x="570" y="154" name="Bulb 5"><Ellipse width="18" height="18" originX="0.5" originY="0.5" name="Path"/><Fill name="Fill"><SolidColor colorValue="FFFFE4A8" name="Color"/></Fill></Shape>
+            <Shape x="690" y="158" name="Bulb 6"><Ellipse width="18" height="18" originX="0.5" originY="0.5" name="Path"/><Fill name="Fill"><SolidColor colorValue="FFFFE4A8" name="Color"/></Fill></Shape>
+            <Shape x="805" y="165" name="Bulb 7"><Ellipse width="18" height="18" originX="0.5" originY="0.5" name="Path"/><Fill name="Fill"><SolidColor colorValue="FFFFE4A8" name="Color"/></Fill></Shape>
+            <Shape x="125" y="92" opacity="0.78" name="Lantern 1"><Ellipse width="64" height="64" originX="0.5" originY="0.5" name="Path"/><Fill name="Fill"><SolidColor colorValue="FFF5E7D8" name="Color"/></Fill></Shape>
+            <Shape x="765" y="88" opacity="0.78" name="Lantern 2"><Ellipse width="76" height="76" originX="0.5" originY="0.5" name="Path"/><Fill name="Fill"><SolidColor colorValue="FFF5E7D8" name="Color"/></Fill></Shape>
+        </Node>
+
+        <Shape x="450" y="520" name="Stage Floor">
+            <Rectangle width="900" height="160" originX="0.5" originY="0.5" name="Path"/>
+            <Fill name="Fill"><LinearGradient startX="0" startY="-94" endX="0" endY="94" name="Gradient">
+                <GradientStop colorValue="FFC9B7A6" position="0"/>
+                <GradientStop colorValue="FFA98E78" position="1"/>
+            </LinearGradient></Fill>
+        </Shape>
+
+        <!-- Timelines -->
+        <LinearAnimation loopValue="loop" duration="120" name="Idle" id="0:200">
+            <KeyedObject objectId="0:100"><KeyedProperty propertyKey="14">
+                <KeyFrameDouble value="384" frame="0" interpolationType="cubic"><CubicEaseInterpolator x1="0.42" y1="0" x2="0.58" y2="1"/></KeyFrameDouble>
+                <KeyFrameDouble value="379" frame="60" interpolationType="cubic"><CubicEaseInterpolator x1="0.42" y1="0" x2="0.58" y2="1"/></KeyFrameDouble>
+                <KeyFrameDouble value="384" frame="120" interpolationType="linear"/>
+            </KeyedProperty></KeyedObject>
+            <KeyedObject objectId="0:110"><KeyedProperty propertyKey="14">
+                <KeyFrameDouble value="384" frame="0" interpolationType="cubic"><CubicEaseInterpolator x1="0.42" y1="0" x2="0.58" y2="1"/></KeyFrameDouble>
+                <KeyFrameDouble value="380" frame="60" interpolationType="cubic"><CubicEaseInterpolator x1="0.42" y1="0" x2="0.58" y2="1"/></KeyFrameDouble>
+                <KeyFrameDouble value="384" frame="120" interpolationType="linear"/>
+            </KeyedProperty></KeyedObject>
+            <KeyedObject objectId="0:120"><KeyedProperty propertyKey="14">
+                <KeyFrameDouble value="278" frame="0" interpolationType="cubic"><CubicEaseInterpolator x1="0.42" y1="0" x2="0.58" y2="1"/></KeyFrameDouble>
+                <KeyFrameDouble value="273" frame="60" interpolationType="cubic"><CubicEaseInterpolator x1="0.42" y1="0" x2="0.58" y2="1"/></KeyFrameDouble>
+                <KeyFrameDouble value="278" frame="120" interpolationType="linear"/>
+            </KeyedProperty></KeyedObject>
+        </LinearAnimation>
+
+        <LinearAnimation duration="72" name="Host Asks" id="0:201">
+            <KeyedObject objectId="0:121"><KeyedProperty propertyKey="15">
+                <KeyFrameDouble value="0" frame="0" interpolationType="cubic"><CubicEaseInterpolator x1="0.2" y1="0.8" x2="0.2" y2="1"/></KeyFrameDouble>
+                <KeyFrameDouble value="-0.32" frame="24" interpolationType="cubic"><CubicEaseInterpolator x1="0.2" y1="0.8" x2="0.2" y2="1"/></KeyFrameDouble>
+                <KeyFrameDouble value="-0.1" frame="48" interpolationType="cubic"><CubicEaseInterpolator x1="0.42" y1="0" x2="0.58" y2="1"/></KeyFrameDouble>
+                <KeyFrameDouble value="0" frame="72" interpolationType="linear"/>
+            </KeyedProperty></KeyedObject>
+        </LinearAnimation>
+
+        <LinearAnimation duration="90" name="Bride Pickup" id="0:202">
+            <KeyedObject objectId="0:101"><KeyedProperty propertyKey="15">
+                <KeyFrameDouble value="0.2" frame="0" interpolationType="cubic"><CubicEaseInterpolator x1="0.45" y1="0" x2="0.2" y2="1"/></KeyFrameDouble>
+                <KeyFrameDouble value="0.72" frame="20" interpolationType="cubic"><CubicEaseInterpolator x1="0.4" y1="0" x2="0.2" y2="1"/></KeyFrameDouble>
+                <KeyFrameDouble value="1.28" frame="42" interpolationType="cubic"><CubicEaseInterpolator x1="0.4" y1="0" x2="0.2" y2="1"/></KeyFrameDouble>
+                <KeyFrameDouble value="2.3" frame="68" interpolationType="cubic"><CubicEaseInterpolator x1="0.2" y1="0.75" x2="0.25" y2="1"/></KeyFrameDouble>
+                <KeyFrameDouble value="2.9" frame="90" interpolationType="linear"/>
+            </KeyedProperty></KeyedObject>
+            <KeyedObject objectId="0:103"><KeyedProperty propertyKey="15">
+                <KeyFrameDouble value="0" frame="0" interpolationType="cubic"><CubicEaseInterpolator x1="0.45" y1="0" x2="0.2" y2="1"/></KeyFrameDouble>
+                <KeyFrameDouble value="-0.5" frame="24" interpolationType="cubic"><CubicEaseInterpolator x1="0.4" y1="0" x2="0.2" y2="1"/></KeyFrameDouble>
+                <KeyFrameDouble value="-0.92" frame="46" interpolationType="cubic"><CubicEaseInterpolator x1="0.4" y1="0" x2="0.2" y2="1"/></KeyFrameDouble>
+                <KeyFrameDouble value="-0.28" frame="72" interpolationType="cubic"><CubicEaseInterpolator x1="0.2" y1="0.75" x2="0.25" y2="1"/></KeyFrameDouble>
+                <KeyFrameDouble value="-0.08" frame="90" interpolationType="linear"/>
+            </KeyedProperty></KeyedObject>
+            <KeyedObject objectId="0:130">
+                <KeyedProperty propertyKey="18">
+                    <KeyFrameDouble value="1" frame="0" interpolationType="linear"/>
+                </KeyedProperty>
+                <KeyedProperty propertyKey="13">
+                    <KeyFrameDouble value="278" frame="0" interpolationType="cubic"><CubicEaseInterpolator x1="0.45" y1="0" x2="0.2" y2="1"/></KeyFrameDouble>
+                    <KeyFrameDouble value="278" frame="20" interpolationType="cubic"><CubicEaseInterpolator x1="0.4" y1="0" x2="0.2" y2="1"/></KeyFrameDouble>
+                    <KeyFrameDouble value="284" frame="42" interpolationType="cubic"><CubicEaseInterpolator x1="0.4" y1="0" x2="0.2" y2="1"/></KeyFrameDouble>
+                    <KeyFrameDouble value="292" frame="68" interpolationType="cubic"><CubicEaseInterpolator x1="0.2" y1="0.75" x2="0.25" y2="1"/></KeyFrameDouble>
+                    <KeyFrameDouble value="278" frame="90" interpolationType="linear"/>
+                </KeyedProperty>
+                <KeyedProperty propertyKey="14">
+                    <KeyFrameDouble value="500" frame="0" interpolationType="cubic"><CubicEaseInterpolator x1="0.45" y1="0" x2="0.2" y2="1"/></KeyFrameDouble>
+                    <KeyFrameDouble value="475" frame="20" interpolationType="cubic"><CubicEaseInterpolator x1="0.4" y1="0" x2="0.2" y2="1"/></KeyFrameDouble>
+                    <KeyFrameDouble value="395" frame="42" interpolationType="cubic"><CubicEaseInterpolator x1="0.4" y1="0" x2="0.2" y2="1"/></KeyFrameDouble>
+                    <KeyFrameDouble value="285" frame="68" interpolationType="cubic"><CubicEaseInterpolator x1="0.2" y1="0.75" x2="0.25" y2="1"/></KeyFrameDouble>
+                    <KeyFrameDouble value="210" frame="90" interpolationType="linear"/>
+                </KeyedProperty>
+            </KeyedObject>
+        </LinearAnimation>
+
+        <LinearAnimation duration="90" name="Groom Pickup" id="0:203">
+            <KeyedObject objectId="0:111"><KeyedProperty propertyKey="15">
+                <KeyFrameDouble value="-0.2" frame="0" interpolationType="cubic"><CubicEaseInterpolator x1="0.45" y1="0" x2="0.2" y2="1"/></KeyFrameDouble>
+                <KeyFrameDouble value="-0.72" frame="20" interpolationType="cubic"><CubicEaseInterpolator x1="0.4" y1="0" x2="0.2" y2="1"/></KeyFrameDouble>
+                <KeyFrameDouble value="-1.28" frame="42" interpolationType="cubic"><CubicEaseInterpolator x1="0.4" y1="0" x2="0.2" y2="1"/></KeyFrameDouble>
+                <KeyFrameDouble value="-2.3" frame="68" interpolationType="cubic"><CubicEaseInterpolator x1="0.2" y1="0.75" x2="0.25" y2="1"/></KeyFrameDouble>
+                <KeyFrameDouble value="-2.9" frame="90" interpolationType="linear"/>
+            </KeyedProperty></KeyedObject>
+            <KeyedObject objectId="0:113"><KeyedProperty propertyKey="15">
+                <KeyFrameDouble value="0" frame="0" interpolationType="cubic"><CubicEaseInterpolator x1="0.45" y1="0" x2="0.2" y2="1"/></KeyFrameDouble>
+                <KeyFrameDouble value="0.5" frame="24" interpolationType="cubic"><CubicEaseInterpolator x1="0.4" y1="0" x2="0.2" y2="1"/></KeyFrameDouble>
+                <KeyFrameDouble value="0.92" frame="46" interpolationType="cubic"><CubicEaseInterpolator x1="0.4" y1="0" x2="0.2" y2="1"/></KeyFrameDouble>
+                <KeyFrameDouble value="0.28" frame="72" interpolationType="cubic"><CubicEaseInterpolator x1="0.2" y1="0.75" x2="0.25" y2="1"/></KeyFrameDouble>
+                <KeyFrameDouble value="0.08" frame="90" interpolationType="linear"/>
+            </KeyedProperty></KeyedObject>
+            <KeyedObject objectId="0:130">
+                <KeyedProperty propertyKey="18">
+                    <KeyFrameDouble value="1" frame="0" interpolationType="linear"/>
+                </KeyedProperty>
+                <KeyedProperty propertyKey="13">
+                    <KeyFrameDouble value="622" frame="0" interpolationType="cubic"><CubicEaseInterpolator x1="0.45" y1="0" x2="0.2" y2="1"/></KeyFrameDouble>
+                    <KeyFrameDouble value="622" frame="20" interpolationType="cubic"><CubicEaseInterpolator x1="0.4" y1="0" x2="0.2" y2="1"/></KeyFrameDouble>
+                    <KeyFrameDouble value="616" frame="42" interpolationType="cubic"><CubicEaseInterpolator x1="0.4" y1="0" x2="0.2" y2="1"/></KeyFrameDouble>
+                    <KeyFrameDouble value="608" frame="68" interpolationType="cubic"><CubicEaseInterpolator x1="0.2" y1="0.75" x2="0.25" y2="1"/></KeyFrameDouble>
+                    <KeyFrameDouble value="622" frame="90" interpolationType="linear"/>
+                </KeyedProperty>
+                <KeyedProperty propertyKey="14">
+                    <KeyFrameDouble value="500" frame="0" interpolationType="cubic"><CubicEaseInterpolator x1="0.45" y1="0" x2="0.2" y2="1"/></KeyFrameDouble>
+                    <KeyFrameDouble value="475" frame="20" interpolationType="cubic"><CubicEaseInterpolator x1="0.4" y1="0" x2="0.2" y2="1"/></KeyFrameDouble>
+                    <KeyFrameDouble value="395" frame="42" interpolationType="cubic"><CubicEaseInterpolator x1="0.4" y1="0" x2="0.2" y2="1"/></KeyFrameDouble>
+                    <KeyFrameDouble value="285" frame="68" interpolationType="cubic"><CubicEaseInterpolator x1="0.2" y1="0.75" x2="0.25" y2="1"/></KeyFrameDouble>
+                    <KeyFrameDouble value="210" frame="90" interpolationType="linear"/>
+                </KeyedProperty>
+            </KeyedObject>
+        </LinearAnimation>
+
+        <LinearAnimation loopValue="loop" duration="36" name="Correct Applause" id="0:204">
+            <KeyedObject objectId="0:141"><KeyedProperty propertyKey="18"><KeyFrameDouble value="1" interpolationType="linear"/></KeyedProperty><KeyedProperty propertyKey="15"><KeyFrameDouble value="0.45" frame="0" interpolationType="cubic"><CubicEaseInterpolator x1="0.42" y1="0" x2="0.58" y2="1"/></KeyFrameDouble><KeyFrameDouble value="0.05" frame="18" interpolationType="cubic"><CubicEaseInterpolator x1="0.42" y1="0" x2="0.58" y2="1"/></KeyFrameDouble><KeyFrameDouble value="0.45" frame="36" interpolationType="linear"/></KeyedProperty></KeyedObject>
+            <KeyedObject objectId="0:142"><KeyedProperty propertyKey="18"><KeyFrameDouble value="1" interpolationType="linear"/></KeyedProperty><KeyedProperty propertyKey="15"><KeyFrameDouble value="-0.45" frame="0" interpolationType="cubic"><CubicEaseInterpolator x1="0.42" y1="0" x2="0.58" y2="1"/></KeyFrameDouble><KeyFrameDouble value="-0.05" frame="18" interpolationType="cubic"><CubicEaseInterpolator x1="0.42" y1="0" x2="0.58" y2="1"/></KeyFrameDouble><KeyFrameDouble value="-0.45" frame="36" interpolationType="linear"/></KeyedProperty></KeyedObject>
+            <KeyedObject objectId="0:143"><KeyedProperty propertyKey="18"><KeyFrameDouble value="1" interpolationType="linear"/></KeyedProperty><KeyedProperty propertyKey="15"><KeyFrameDouble value="0.45" frame="0" interpolationType="linear"/><KeyFrameDouble value="0.05" frame="18" interpolationType="linear"/><KeyFrameDouble value="0.45" frame="36" interpolationType="linear"/></KeyedProperty></KeyedObject>
+            <KeyedObject objectId="0:144"><KeyedProperty propertyKey="18"><KeyFrameDouble value="1" interpolationType="linear"/></KeyedProperty><KeyedProperty propertyKey="15"><KeyFrameDouble value="-0.45" frame="0" interpolationType="linear"/><KeyFrameDouble value="-0.05" frame="18" interpolationType="linear"/><KeyFrameDouble value="-0.45" frame="36" interpolationType="linear"/></KeyedProperty></KeyedObject>
+            <KeyedObject objectId="0:145"><KeyedProperty propertyKey="18"><KeyFrameDouble value="1" interpolationType="linear"/></KeyedProperty><KeyedProperty propertyKey="15"><KeyFrameDouble value="0.45" frame="0" interpolationType="linear"/><KeyFrameDouble value="0.05" frame="18" interpolationType="linear"/><KeyFrameDouble value="0.45" frame="36" interpolationType="linear"/></KeyedProperty></KeyedObject>
+            <KeyedObject objectId="0:146"><KeyedProperty propertyKey="18"><KeyFrameDouble value="1" interpolationType="linear"/></KeyedProperty><KeyedProperty propertyKey="15"><KeyFrameDouble value="-0.45" frame="0" interpolationType="linear"/><KeyFrameDouble value="-0.05" frame="18" interpolationType="linear"/><KeyFrameDouble value="-0.45" frame="36" interpolationType="linear"/></KeyedProperty></KeyedObject>
+            <KeyedObject objectId="0:147"><KeyedProperty propertyKey="18"><KeyFrameDouble value="1" interpolationType="linear"/></KeyedProperty><KeyedProperty propertyKey="15"><KeyFrameDouble value="0.45" frame="0" interpolationType="linear"/><KeyFrameDouble value="0.05" frame="18" interpolationType="linear"/><KeyFrameDouble value="0.45" frame="36" interpolationType="linear"/></KeyedProperty></KeyedObject>
+            <KeyedObject objectId="0:148"><KeyedProperty propertyKey="18"><KeyFrameDouble value="1" interpolationType="linear"/></KeyedProperty><KeyedProperty propertyKey="15"><KeyFrameDouble value="-0.45" frame="0" interpolationType="linear"/><KeyFrameDouble value="-0.05" frame="18" interpolationType="linear"/><KeyFrameDouble value="-0.45" frame="36" interpolationType="linear"/></KeyedProperty></KeyedObject>
+            <KeyedObject objectId="0:161"><KeyedProperty propertyKey="18"><KeyFrameDouble value="0" frame="0" interpolationType="linear"/><KeyFrameDouble value="1" frame="8" interpolationType="linear"/><KeyFrameDouble value="0" frame="36" interpolationType="linear"/></KeyedProperty><KeyedProperty propertyKey="14"><KeyFrameDouble value="300" frame="0" interpolationType="linear"/><KeyFrameDouble value="80" frame="36" interpolationType="linear"/></KeyedProperty></KeyedObject>
+            <KeyedObject objectId="0:162"><KeyedProperty propertyKey="18"><KeyFrameDouble value="0" frame="0" interpolationType="linear"/><KeyFrameDouble value="1" frame="12" interpolationType="linear"/><KeyFrameDouble value="0" frame="36" interpolationType="linear"/></KeyedProperty><KeyedProperty propertyKey="14"><KeyFrameDouble value="340" frame="0" interpolationType="linear"/><KeyFrameDouble value="110" frame="36" interpolationType="linear"/></KeyedProperty></KeyedObject>
+            <KeyedObject objectId="0:163"><KeyedProperty propertyKey="18"><KeyFrameDouble value="0" frame="0" interpolationType="linear"/><KeyFrameDouble value="1" frame="5" interpolationType="linear"/><KeyFrameDouble value="0" frame="36" interpolationType="linear"/></KeyedProperty><KeyedProperty propertyKey="14"><KeyFrameDouble value="320" frame="0" interpolationType="linear"/><KeyFrameDouble value="65" frame="36" interpolationType="linear"/></KeyedProperty></KeyedObject>
+            <KeyedObject objectId="0:164"><KeyedProperty propertyKey="18"><KeyFrameDouble value="0" frame="0" interpolationType="linear"/><KeyFrameDouble value="1" frame="7" interpolationType="linear"/><KeyFrameDouble value="0" frame="36" interpolationType="linear"/></KeyedProperty><KeyedProperty propertyKey="14"><KeyFrameDouble value="300" frame="0" interpolationType="linear"/><KeyFrameDouble value="80" frame="36" interpolationType="linear"/></KeyedProperty></KeyedObject>
+            <KeyedObject objectId="0:165"><KeyedProperty propertyKey="18"><KeyFrameDouble value="0" frame="0" interpolationType="linear"/><KeyFrameDouble value="1" frame="11" interpolationType="linear"/><KeyFrameDouble value="0" frame="36" interpolationType="linear"/></KeyedProperty><KeyedProperty propertyKey="14"><KeyFrameDouble value="340" frame="0" interpolationType="linear"/><KeyFrameDouble value="110" frame="36" interpolationType="linear"/></KeyedProperty></KeyedObject>
+            <KeyedObject objectId="0:166"><KeyedProperty propertyKey="18"><KeyFrameDouble value="0" frame="0" interpolationType="linear"/><KeyFrameDouble value="1" frame="4" interpolationType="linear"/><KeyFrameDouble value="0" frame="36" interpolationType="linear"/></KeyedProperty><KeyedProperty propertyKey="14"><KeyFrameDouble value="320" frame="0" interpolationType="linear"/><KeyFrameDouble value="65" frame="36" interpolationType="linear"/></KeyedProperty></KeyedObject>
+        </LinearAnimation>
+
+        <LinearAnimation duration="36" name="Incorrect Reaction" id="0:205">
+            <KeyedObject objectId="0:102"><KeyedProperty propertyKey="15"><KeyFrameDouble value="0" frame="0" interpolationType="cubic"><CubicEaseInterpolator x1="0.42" y1="0" x2="0.58" y2="1"/></KeyFrameDouble><KeyFrameDouble value="-0.14" frame="9" interpolationType="linear"/><KeyFrameDouble value="0.14" frame="18" interpolationType="linear"/><KeyFrameDouble value="-0.08" frame="27" interpolationType="linear"/><KeyFrameDouble value="0" frame="36" interpolationType="linear"/></KeyedProperty></KeyedObject>
+            <KeyedObject objectId="0:112"><KeyedProperty propertyKey="15"><KeyFrameDouble value="0" frame="0" interpolationType="cubic"><CubicEaseInterpolator x1="0.42" y1="0" x2="0.58" y2="1"/></KeyFrameDouble><KeyFrameDouble value="0.14" frame="9" interpolationType="linear"/><KeyFrameDouble value="-0.14" frame="18" interpolationType="linear"/><KeyFrameDouble value="0.08" frame="27" interpolationType="linear"/><KeyFrameDouble value="0" frame="36" interpolationType="linear"/></KeyedProperty></KeyedObject>
+        </LinearAnimation>
+
+        <LinearAnimation duration="1" name="Show Bride Shoe" id="0:207">
+            <KeyedObject objectId="0:131"><KeyedProperty propertyKey="18"><KeyFrameDouble value="1" interpolationType="linear"/></KeyedProperty></KeyedObject>
+            <KeyedObject objectId="0:132"><KeyedProperty propertyKey="18"><KeyFrameDouble value="0" interpolationType="linear"/></KeyedProperty></KeyedObject>
+        </LinearAnimation>
+        <LinearAnimation duration="1" name="Show Groom Shoe" id="0:208">
+            <KeyedObject objectId="0:131"><KeyedProperty propertyKey="18"><KeyFrameDouble value="0" interpolationType="linear"/></KeyedProperty></KeyedObject>
+            <KeyedObject objectId="0:132"><KeyedProperty propertyKey="18"><KeyFrameDouble value="1" interpolationType="linear"/></KeyedProperty></KeyedObject>
+        </LinearAnimation>
+
+        <StateMachine name="Wedding Shoe Game" id="0:300">
+            <StateMachineLayer name="Character Actions" id="0:301">
+                <AnyState x="0" y="-120" id="0:302">
+                    <StateTransition stateToId="0:311"><TransitionViewModelCondition><TransitionPropertyViewModelComparator><BindablePropertyTrigger><DataBindContext sourcePathIds="0:400-0:410" propertyKey="686"/></BindablePropertyTrigger></TransitionPropertyViewModelComparator><TransitionValueTriggerComparator/></TransitionViewModelCondition></StateTransition>
+                    <StateTransition stateToId="0:312"><TransitionViewModelCondition><TransitionPropertyViewModelComparator><BindablePropertyTrigger><DataBindContext sourcePathIds="0:400-0:411" propertyKey="686"/></BindablePropertyTrigger></TransitionPropertyViewModelComparator><TransitionValueTriggerComparator/></TransitionViewModelCondition></StateTransition>
+                    <StateTransition stateToId="0:313"><TransitionViewModelCondition><TransitionPropertyViewModelComparator><BindablePropertyTrigger><DataBindContext sourcePathIds="0:400-0:412" propertyKey="686"/></BindablePropertyTrigger></TransitionPropertyViewModelComparator><TransitionValueTriggerComparator/></TransitionViewModelCondition></StateTransition>
+                    <StateTransition stateToId="0:314"><TransitionViewModelCondition><TransitionPropertyViewModelComparator><BindablePropertyTrigger><DataBindContext sourcePathIds="0:400-0:415" propertyKey="686"/></BindablePropertyTrigger></TransitionPropertyViewModelComparator><TransitionValueTriggerComparator/></TransitionViewModelCondition></StateTransition>
+                    <StateTransition stateToId="0:315"><TransitionViewModelCondition><TransitionPropertyViewModelComparator><BindablePropertyTrigger><DataBindContext sourcePathIds="0:400-0:416" propertyKey="686"/></BindablePropertyTrigger></TransitionPropertyViewModelComparator><TransitionValueTriggerComparator/></TransitionViewModelCondition></StateTransition>
+                    <StateTransition stateToId="0:310"><TransitionViewModelCondition><TransitionPropertyViewModelComparator><BindablePropertyTrigger><DataBindContext sourcePathIds="0:400-0:417" propertyKey="686"/></BindablePropertyTrigger></TransitionPropertyViewModelComparator><TransitionValueTriggerComparator/></TransitionViewModelCondition></StateTransition>
+                </AnyState>
+                <ExitState x="720" y="-120"/>
+                <EntryState x="-140" y="0"><StateTransition stateToId="0:310"/></EntryState>
+                <AnimationState x="40" y="0" animationId="0:200" stateName="Idle" id="0:310"/>
+                <AnimationState x="210" y="-80" animationId="0:201" stateName="Host Asks" id="0:311"/>
+                <AnimationState x="390" y="-20" animationId="0:202" stateName="Bride Pickup" id="0:312"/>
+                <AnimationState x="390" y="80" animationId="0:203" stateName="Groom Pickup" id="0:313"/>
+                <AnimationState x="570" y="-20" animationId="0:204" stateName="Correct Applause" id="0:314"/>
+                <AnimationState x="570" y="80" animationId="0:205" stateName="Incorrect Reaction" id="0:315"/>
+            </StateMachineLayer>
+            <StateMachineLayer name="Footwear Choice" id="0:320">
+                <AnyState x="0" y="-120" id="0:321">
+                    <StateTransition stateToId="0:323"><TransitionViewModelCondition><TransitionPropertyViewModelComparator><BindablePropertyTrigger><DataBindContext sourcePathIds="0:400-0:413" propertyKey="686"/></BindablePropertyTrigger></TransitionPropertyViewModelComparator><TransitionValueTriggerComparator/></TransitionViewModelCondition></StateTransition>
+                    <StateTransition stateToId="0:324"><TransitionViewModelCondition><TransitionPropertyViewModelComparator><BindablePropertyTrigger><DataBindContext sourcePathIds="0:400-0:414" propertyKey="686"/></BindablePropertyTrigger></TransitionPropertyViewModelComparator><TransitionValueTriggerComparator/></TransitionViewModelCondition></StateTransition>
+                    <StateTransition stateToId="0:323"><TransitionViewModelCondition><TransitionPropertyViewModelComparator><BindablePropertyTrigger><DataBindContext sourcePathIds="0:400-0:417" propertyKey="686"/></BindablePropertyTrigger></TransitionPropertyViewModelComparator><TransitionValueTriggerComparator/></TransitionViewModelCondition></StateTransition>
+                </AnyState>
+                <ExitState x="600" y="-120"/>
+                <EntryState x="-120" y="0"><StateTransition stateToId="0:323"/></EntryState>
+                <AnimationState x="100" y="0" animationId="0:207" stateName="Bride Shoe" id="0:323"/>
+                <AnimationState x="340" y="0" animationId="0:208" stateName="Groom Shoe" id="0:324"/>
+            </StateMachineLayer>
+        </StateMachine>
+    </Artboard>
+
+    <ImageAsset file="assets/bride-body.png" width="270" height="430" name="Bride Body Artwork" id="0:700"/>
+    <ImageAsset file="assets/groom-body.png" width="260" height="430" name="Groom Body Artwork" id="0:701"/>
+    <ImageAsset file="assets/bride-upper-arm.png" width="42" height="86" name="Bride Upper Arm Artwork" id="0:702"/>
+    <ImageAsset file="assets/bride-forearm-hand.png" width="42" height="104" name="Bride Forearm Artwork" id="0:703"/>
+    <ImageAsset file="assets/groom-upper-arm.png" width="48" height="88" name="Groom Upper Arm Artwork" id="0:704"/>
+    <ImageAsset file="assets/groom-forearm-hand.png" width="48" height="106" name="Groom Forearm Artwork" id="0:705"/>
+    <ImageAsset file="assets/bride-shoe.png" width="82" height="48" name="Bride Shoe Artwork" id="0:706"/>
+    <ImageAsset file="assets/groom-shoe.png" width="88" height="48" name="Groom Shoe Artwork" id="0:707"/>
+
+    <ViewModel defaultInstanceId="0:401" name="Wedding Shoe Game" id="0:400">
+        <ViewModelPropertyTrigger name="ask" id="0:410"/>
+        <ViewModelPropertyTrigger name="bridePickup" id="0:411"/>
+        <ViewModelPropertyTrigger name="groomPickup" id="0:412"/>
+        <ViewModelPropertyTrigger name="raiseBrideShoe" id="0:413"/>
+        <ViewModelPropertyTrigger name="raiseGroomShoe" id="0:414"/>
+        <ViewModelPropertyTrigger name="correct" id="0:415"/>
+        <ViewModelPropertyTrigger name="incorrect" id="0:416"/>
+        <ViewModelPropertyTrigger name="reset" id="0:417"/>
+        <ViewModelPropertyNumber name="questionIndex" id="0:418"/>
+        <ViewModelPropertyNumber name="selectedSide" id="0:419"/>
+        <ViewModelPropertyNumber name="selectedShoe" id="0:420"/>
+
+        <ViewModelInstance exports="true" name="Default" id="0:401">
+            <ViewModelInstanceTrigger viewModelPropertyId="0:410"/>
+            <ViewModelInstanceTrigger viewModelPropertyId="0:411"/>
+            <ViewModelInstanceTrigger viewModelPropertyId="0:412"/>
+            <ViewModelInstanceTrigger viewModelPropertyId="0:413"/>
+            <ViewModelInstanceTrigger viewModelPropertyId="0:414"/>
+            <ViewModelInstanceTrigger viewModelPropertyId="0:415"/>
+            <ViewModelInstanceTrigger viewModelPropertyId="0:416"/>
+            <ViewModelInstanceTrigger viewModelPropertyId="0:417"/>
+            <ViewModelInstanceNumber propertyValue="0" viewModelPropertyId="0:418"/>
+            <ViewModelInstanceNumber propertyValue="0" viewModelPropertyId="0:419"/>
+            <ViewModelInstanceNumber propertyValue="0" viewModelPropertyId="0:420"/>
+        </ViewModelInstance>
+    </ViewModel>
+</Rive>
