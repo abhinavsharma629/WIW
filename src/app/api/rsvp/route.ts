@@ -9,8 +9,17 @@ type RsvpPayload = {
   company?: unknown;
 };
 
+type RsvpResponse = {
+  submittedAt: string;
+  name: string;
+  attendance: string;
+  guests: string;
+  message: string;
+};
+
 const dataDirectory = path.join(process.cwd(), "data");
 const responsesFile = path.join(dataDirectory, "rsvp-responses.csv");
+const googleSheetsWebhookUrl = process.env.GOOGLE_SHEETS_WEBHOOK_URL;
 const headers = [
   "Submitted At",
   "Name",
@@ -30,7 +39,7 @@ function csvCell(value: string) {
   return `"${safeValue.replaceAll('"', '""')}"`;
 }
 
-async function saveResponse(row: string) {
+async function saveCsvResponse(row: string) {
   await mkdir(dataDirectory, { recursive: true });
 
   try {
@@ -40,6 +49,55 @@ async function saveResponse(row: string) {
   }
 
   await appendFile(responsesFile, `${row}\n`, "utf8");
+}
+
+async function saveGoogleSheetResponse(response: RsvpResponse) {
+  if (!googleSheetsWebhookUrl) {
+    throw new Error("Google Sheets webhook URL is not configured.");
+  }
+
+  const webhookResponse = await fetch(googleSheetsWebhookUrl, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(response),
+    cache: "no-store",
+    redirect: "follow",
+  });
+
+  if (!webhookResponse.ok) {
+    throw new Error(`Google Sheets webhook returned ${webhookResponse.status}.`);
+  }
+
+  let result: { ok?: unknown };
+
+  try {
+    result = (await webhookResponse.json()) as { ok?: unknown };
+  } catch {
+    throw new Error("Google Sheets webhook returned an invalid response.");
+  }
+
+  if (result.ok !== true) {
+    throw new Error("Google Sheets webhook rejected the RSVP response.");
+  }
+}
+
+async function saveResponse(response: RsvpResponse) {
+  if (googleSheetsWebhookUrl) {
+    await saveGoogleSheetResponse(response);
+    return;
+  }
+
+  const row = [
+    response.submittedAt,
+    response.name,
+    response.attendance,
+    response.guests,
+    response.message,
+  ]
+    .map(csvCell)
+    .join(",");
+
+  await saveCsvResponse(row);
 }
 
 export async function POST(request: Request) {
@@ -68,17 +126,18 @@ export async function POST(request: Request) {
     return Response.json({ error: "Please check the RSVP details." }, { status: 400 });
   }
 
-  const row = [
-    new Date().toISOString(),
+  const response = {
+    submittedAt: new Date().toISOString(),
     name,
     attendance,
     guests,
     message,
-  ]
-    .map(csvCell)
-    .join(",");
+  };
 
-  pendingWrite = pendingWrite.then(() => saveResponse(row));
+  pendingWrite = pendingWrite.then(
+    () => saveResponse(response),
+    () => saveResponse(response),
+  );
 
   try {
     await pendingWrite;
