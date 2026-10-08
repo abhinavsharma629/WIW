@@ -6,7 +6,8 @@ export const couple = {
   rsvpBy: "1 November 2026",
   city: "Agra, Uttar Pradesh",
   tagline: "Some stories are written in the stars. Ours led us here.",
-  albumUrl: "https://photos.google.com/",
+  googleAlbumUrl: "https://photos.google.com/",
+  appleAlbumUrl: "https://www.icloud.com/photos/",
 };
 
 export const story = [
@@ -37,6 +38,7 @@ export const events = [
     time: "9:00 AM",
     venue: "Ginger Agra · Bichpuri",
     dressCode: "Light pastel colours",
+    image: "/images/gallery-celebration.jpg",
     icon: "❋",
     mapUrl: "https://maps.google.com/?q=Ginger+Agra+Bichpuri",
   },
@@ -46,6 +48,7 @@ export const events = [
     time: "6:00 PM",
     venue: "Ginger Agra · Bichpuri",
     dressCode: "Dark theme",
+    image: "/images/gallery-birthday.jpg",
     icon: "◇",
     mapUrl: "https://maps.google.com/?q=Ginger+Agra+Bichpuri",
   },
@@ -55,6 +58,7 @@ export const events = [
     time: "10:00 PM onwards",
     venue: "Ginger Agra · Bichpuri",
     dressCode: "Dark theme",
+    image: "/images/abhinav-mishi-cover.jpg",
     icon: "✦",
     mapUrl: "https://maps.google.com/?q=Ginger+Agra+Bichpuri",
   },
@@ -64,6 +68,7 @@ export const events = [
     time: "9:00 AM",
     venue: "Ginger Agra · Bichpuri",
     dressCode: "Light multicoloured",
+    image: "/images/gallery-celebration.jpg",
     icon: "☀",
     mapUrl: "https://maps.google.com/?q=Ginger+Agra+Bichpuri",
   },
@@ -73,6 +78,7 @@ export const events = [
     time: "Celebrations from 7:00 PM",
     venue: "Ginger Agra · Bichpuri",
     dressCode: "Ethnic dark",
+    image: "/images/our-favourite-chapter.jpg",
     scheduleNote: "Baraat at 8:00 PM",
     icon: "◉",
     mapUrl: "https://maps.google.com/?q=Ginger+Agra+Bichpuri",
@@ -81,24 +87,24 @@ export const events = [
 
 export const gallery = [
   {
-    src: "https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=1200&q=85",
-    alt: "Couple sharing a quiet moment outdoors",
-    caption: "Wherever we are, together is home.",
+    src: "/images/gallery-celebration.jpg",
+    alt: "Abhinav and Mishi celebrating together among marigold decorations",
+    caption: "The colours of us.",
   },
   {
-    src: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1000&q=85",
-    alt: "Wedding rings resting on flowers",
-    caption: "The promise.",
+    src: "/images/gallery-birthday.jpg",
+    alt: "Abhinav and Mishi smiling together at a birthday celebration",
+    caption: "Still choosing each other.",
   },
   {
-    src: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1000&q=85",
-    alt: "Wedding celebration under string lights",
-    caption: "A night to remember.",
+    src: "/images/gallery-bali.jpg",
+    alt: "Abhinav and Mishi jumping between the Handara Gate in Bali",
+    caption: "Miles of memories.",
   },
   {
-    src: "https://images.unsplash.com/photo-1519741347686-c1e0aadf4611?auto=format&fit=crop&w=1200&q=85",
-    alt: "Bride and groom walking together",
-    caption: "Every road led to you.",
+    src: "/images/gallery-polaroids.jpg",
+    alt: "A hand holding favourite Polaroid photographs of Abhinav and Mishi",
+    caption: "Little moments, forever kept.",
   },
 ];
 

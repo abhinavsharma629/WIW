@@ -225,10 +225,20 @@ export default function Home() {
         <div className="hero-image">
           <Image
             src="/images/abhinav-mishi-cover.jpg"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="hero-image-backdrop"
+            aria-hidden="true"
+          />
+          <Image
+            src="/images/abhinav-mishi-cover.jpg"
             alt="Abhinav and Mishi enjoying an outdoor adventure together"
             fill
             priority
             sizes="100vw"
+            className="hero-image-photo"
           />
           <div className="hero-image-caption">
             <span>Save the date</span>
@@ -287,7 +297,13 @@ export default function Home() {
         </div>
         <div className="events-grid">
           {events.map((event, index) => (
-            <article className="event-card" key={event.name}>
+            <article
+              className="event-card"
+              key={event.name}
+              style={{
+                backgroundImage: `linear-gradient(rgba(238, 234, 228, 0.9), rgba(238, 234, 228, 0.9)), url("${event.image}")`,
+              }}
+            >
               <span className="event-number">0{index + 1}</span>
               <div className="event-icon" aria-hidden="true">{event.icon}</div>
               <p className="event-date">{event.date}</p>
@@ -315,9 +331,14 @@ export default function Home() {
             <p className="eyebrow">Frames from our forever</p>
             <h2>Captured in love</h2>
           </div>
-          <a className="text-link" href={couple.albumUrl} target="_blank" rel="noreferrer">
-            View full album <span>↗</span>
-          </a>
+          <div className="album-links">
+            <a className="text-link" href={couple.googleAlbumUrl} target="_blank" rel="noreferrer">
+              View Google album <span>↗</span>
+            </a>
+            <a className="text-link" href={couple.appleAlbumUrl} target="_blank" rel="noreferrer">
+              View Apple album <span>↗</span>
+            </a>
+          </div>
         </div>
         <div className="gallery-grid">
           {gallery.map((photo, index) => (

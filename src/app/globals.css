@@ -376,7 +376,7 @@ h2 {
 }
 
 .story-portrait {
-  background-image: url("https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=1400&q=90");
+  background-image: url("/images/our-favourite-chapter.jpg");
   background-position: center;
   background-size: cover;
   min-height: 45rem;
@@ -2778,6 +2778,7 @@ h2 {
 
 .hero-image {
   aspect-ratio: 2.15 / 1;
+  background: #799261;
   min-height: 33rem;
   overflow: hidden;
   position: relative;
@@ -2790,9 +2791,17 @@ h2 {
   position: absolute;
 }
 
-.hero-image img {
+.hero-image .hero-image-backdrop {
+  filter: blur(18px) brightness(0.75);
   object-fit: cover;
-  object-position: center 42%;
+  object-position: center;
+  opacity: 0.48;
+  transform: scale(1.05);
+}
+
+.hero-image .hero-image-photo {
+  object-fit: contain;
+  object-position: center;
 }
 
 .hero-image-caption {
@@ -2873,7 +2882,9 @@ h2 {
 }
 
 .event-card {
-  background: transparent;
+  background-color: transparent;
+  background-position: center;
+  background-size: cover;
   border-bottom: 1px solid var(--line);
   border-top: 1px solid var(--line);
   min-height: 25rem;
@@ -2904,30 +2915,26 @@ h2 {
 
 .gallery-grid {
   gap: 0.7rem;
-  grid-template-columns: 0.82fr 1fr 1fr;
-  grid-template-rows: 19rem 19rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: 34rem;
   max-width: 92rem;
 }
 
 .gallery-item:first-child::before {
-  align-items: flex-end;
-  background: #d8d3cb;
-  color: #605c54;
-  content: "Explore\A our gallery";
-  display: flex;
-  font-size: clamp(2rem, 4vw, 4.4rem);
-  inset: 0;
-  letter-spacing: -0.065em;
-  line-height: 0.92;
-  padding: 2.2rem;
-  position: absolute;
-  white-space: pre;
-  z-index: 2;
+  display: none;
 }
 
-.gallery-item:first-child:hover::before {
-  opacity: 0;
-  transition: opacity 250ms ease;
+.gallery-item-1,
+.gallery-item-4 {
+  grid-column: auto;
+  grid-row: auto;
+}
+
+.album-links {
+  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
 }
 
 .game-section {
@@ -3046,6 +3053,11 @@ footer {
     border-left: 0;
     border-top: 0;
   }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(2, 32rem);
+  }
 }
 
 @media (max-width: 600px) {
@@ -3078,10 +3090,16 @@ footer {
 
   .hero-image {
     aspect-ratio: 4 / 5;
+    background: transparent;
     min-height: 33rem;
   }
 
-  .hero-image img {
+  .hero-image .hero-image-backdrop {
+    display: none;
+  }
+
+  .hero-image .hero-image-photo {
+    object-fit: cover;
     object-position: center;
   }
 
@@ -3094,7 +3112,90 @@ footer {
     min-height: 31rem;
   }
 
-  .gallery-item:first-child::before {
-    font-size: 3rem;
+  .gallery-heading {
+    gap: 1.5rem;
+  }
+
+  .album-links {
+    align-items: flex-start;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 31rem);
+  }
+
+  .game-section,
+  .quiz-card,
+  .quiz-card > div,
+  .shoe-game,
+  .side-picker {
+    min-width: 0;
+  }
+
+  .game-copy {
+    padding: 4rem 1.25rem;
+  }
+
+  .quiz-card.shoe-game-card {
+    overflow: hidden;
+    padding: 2.5rem 0.75rem;
+  }
+
+  .quiz-card h3 {
+    font-size: clamp(1.65rem, 8vw, 2.3rem);
+  }
+
+  .side-buttons {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .side-buttons button {
+    padding: 0.9rem 0.35rem;
+  }
+
+  .wedding-rive-canvas.is-compact {
+    height: 5.8rem;
+    width: 5.8rem;
+  }
+
+  .shoe-game-top {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+
+  .rive-wedding-stage {
+    border-width: 0.2rem;
+    margin: 0.75rem 0;
+    max-width: 100%;
+  }
+
+  .rive-question-board {
+    gap: 0.2rem;
+    left: 8%;
+    min-height: 23%;
+    padding: 0.35rem 0.55rem;
+    top: 1.5%;
+    width: 84%;
+  }
+
+  .rive-question-board strong {
+    font-size: clamp(0.75rem, 3.5vw, 1rem);
+  }
+
+  .rive-side-indicator {
+    bottom: 0.4rem;
+    font-size: 0.45rem;
+    white-space: nowrap;
+  }
+
+  .shoe-choices {
+    gap: 0.5rem;
+  }
+
+  .shoe-choices button {
+    font-size: 0.62rem;
+    padding: 0.75rem 0.5rem;
   }
 }
