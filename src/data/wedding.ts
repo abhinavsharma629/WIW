@@ -6,8 +6,9 @@ export const couple = {
   rsvpBy: "1 November 2026",
   city: "Agra, Uttar Pradesh",
   tagline: "Some stories are written in the stars. Ours led us here.",
-  googleAlbumUrl: "https://photos.google.com/",
-  appleAlbumUrl: "https://www.icloud.com/photos/",
+  googleAlbumUrl: "https://photos.app.goo.gl/VXQpt7k5z1Zbc6Ln6",
+  appleAlbumUrl:
+    "https://www.icloud.com/sharedalbum/#D2Gv3kn1mPV7bdS-GnPFEWeEQOQCAEQARog6lDdKmaPzKX4LGiZIva4VaCZdfpO5kJrTrVS_D_g5ss",
 };
 
 export const story = [
@@ -38,7 +39,8 @@ export const events = [
     time: "9:00 AM",
     venue: "Ginger Agra · Bichpuri",
     dressCode: "Light pastel colours",
-    image: "/images/gallery-celebration.jpg",
+    image:
+      "https://images.pexels.com/photos/37628608/pexels-photo-37628608.jpeg?auto=compress&cs=tinysrgb&w=1200",
     icon: "❋",
     mapUrl: "https://maps.google.com/?q=Ginger+Agra+Bichpuri",
   },
@@ -48,7 +50,8 @@ export const events = [
     time: "6:00 PM",
     venue: "Ginger Agra · Bichpuri",
     dressCode: "Dark theme",
-    image: "/images/gallery-birthday.jpg",
+    image:
+      "https://images.pexels.com/photos/34222609/pexels-photo-34222609.jpeg?auto=compress&cs=tinysrgb&w=1200",
     icon: "◇",
     mapUrl: "https://maps.google.com/?q=Ginger+Agra+Bichpuri",
   },
@@ -58,7 +61,8 @@ export const events = [
     time: "10:00 PM onwards",
     venue: "Ginger Agra · Bichpuri",
     dressCode: "Dark theme",
-    image: "/images/abhinav-mishi-cover.jpg",
+    image:
+      "https://images.pexels.com/photos/5378971/pexels-photo-5378971.jpeg?auto=compress&cs=tinysrgb&w=1200",
     icon: "✦",
     mapUrl: "https://maps.google.com/?q=Ginger+Agra+Bichpuri",
   },
@@ -68,7 +72,8 @@ export const events = [
     time: "9:00 AM",
     venue: "Ginger Agra · Bichpuri",
     dressCode: "Light multicoloured",
-    image: "/images/gallery-celebration.jpg",
+    image:
+      "https://images.pexels.com/photos/18929627/pexels-photo-18929627.jpeg?auto=compress&cs=tinysrgb&w=1200",
     icon: "☀",
     mapUrl: "https://maps.google.com/?q=Ginger+Agra+Bichpuri",
   },
@@ -78,7 +83,8 @@ export const events = [
     time: "Celebrations from 7:00 PM",
     venue: "Ginger Agra · Bichpuri",
     dressCode: "Ethnic dark",
-    image: "/images/our-favourite-chapter.jpg",
+    image:
+      "https://images.pexels.com/photos/27443850/pexels-photo-27443850.jpeg?auto=compress&cs=tinysrgb&w=1200",
     scheduleNote: "Baraat at 8:00 PM",
     icon: "◉",
     mapUrl: "https://maps.google.com/?q=Ginger+Agra+Bichpuri",

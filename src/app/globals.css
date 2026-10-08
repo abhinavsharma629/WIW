@@ -2931,10 +2931,27 @@ h2 {
 }
 
 .album-links {
-  align-items: flex-end;
+  align-items: center;
   display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
+  flex-direction: row;
+  gap: clamp(1.25rem, 3vw, 2.75rem);
+}
+
+.album-links .text-link {
+  align-items: center;
+  display: inline-flex;
+  white-space: nowrap;
+}
+
+.album-icon {
+  flex: 0 0 auto;
+  height: 1.15rem;
+  margin-right: 0.55rem;
+  width: 1.15rem;
+}
+
+.apple-album-icon {
+  fill: currentColor;
 }
 
 .game-section {
@@ -3117,7 +3134,12 @@ footer {
   }
 
   .album-links {
-    align-items: flex-start;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .album-links .text-link {
+    font-size: 0.58rem;
   }
 
   .gallery-grid {
