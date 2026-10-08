@@ -506,10 +506,6 @@ export default function Home() {
             Full name
             <input name="name" type="text" placeholder="Your name" maxLength={80} required />
           </label>
-          <label>
-            Email address
-            <input name="email" type="email" placeholder="you@example.com" maxLength={120} required />
-          </label>
           <div className="form-row">
             <label>
               Will you attend?

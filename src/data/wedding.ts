@@ -11,13 +11,13 @@ export const couple = {
 
 export const story = [
   {
-    year: "2021",
+    year: "2024",
     title: "A chance hello",
     description:
       "A rainy evening, one shared umbrella, and a conversation neither of us wanted to end.",
   },
   {
-    year: "2023",
+    year: "2025",
     title: "Miles of memories",
     description:
       "From quiet coffee dates to loud road trips, ordinary days became our favourite adventures.",

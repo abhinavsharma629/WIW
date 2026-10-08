@@ -3,7 +3,6 @@ import path from "node:path";
 
 type RsvpPayload = {
   name?: unknown;
-  email?: unknown;
   attendance?: unknown;
   guests?: unknown;
   message?: unknown;
@@ -15,7 +14,6 @@ const responsesFile = path.join(dataDirectory, "rsvp-responses.csv");
 const headers = [
   "Submitted At",
   "Name",
-  "Email",
   "Attendance",
   "Guests",
   "Message",
@@ -58,14 +56,12 @@ export async function POST(request: Request) {
   }
 
   const name = cleanText(payload.name, 80);
-  const email = cleanText(payload.email, 120);
   const attendance = cleanText(payload.attendance, 40);
   const guests = cleanText(payload.guests, 2);
   const message = cleanText(payload.message, 500);
 
   if (
     !name ||
-    !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ||
     !["Joyfully accepts", "Regretfully declines"].includes(attendance) ||
     !/^[1-5]$/.test(guests)
   ) {
@@ -75,7 +71,6 @@ export async function POST(request: Request) {
   const row = [
     new Date().toISOString(),
     name,
-    email,
     attendance,
     guests,
     message,
