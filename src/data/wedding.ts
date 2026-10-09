@@ -39,8 +39,7 @@ export const events = [
     time: "9:00 AM",
     venue: "Ginger Agra · Bichpuri",
     dressCode: "Green · any shade",
-    image:
-      "https://images.pexels.com/photos/28405813/pexels-photo-28405813.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    image: "/images/event-mehndi.svg",
     icon: "❋",
     mapUrl: "https://maps.google.com/?q=Ginger+Agra+Bichpuri",
   },
@@ -50,8 +49,7 @@ export const events = [
     time: "6:00 PM",
     venue: "Ginger Agra · Bichpuri",
     dressCode: "Glitter & bling",
-    image:
-      "https://images.pexels.com/photos/5922743/pexels-photo-5922743.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    image: "/images/event-sangeet.svg",
     icon: "✦",
     mapUrl: "https://maps.google.com/?q=Ginger+Agra+Bichpuri",
   },
@@ -61,8 +59,7 @@ export const events = [
     time: "9:00 AM",
     venue: "Ginger Agra · Bichpuri",
     dressCode: "Pastel colours",
-    image:
-      "https://images.pexels.com/photos/37628608/pexels-photo-37628608.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    image: "/images/event-haldi.svg",
     icon: "☀",
     mapUrl: "https://maps.google.com/?q=Ginger+Agra+Bichpuri",
   },
@@ -72,8 +69,7 @@ export const events = [
     time: "Celebrations from 7:00 PM",
     venue: "Ginger Agra · Bichpuri",
     dressCode: "Royal / ethnic",
-    image:
-      "https://images.pexels.com/photos/33144622/pexels-photo-33144622.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    image: "/images/event-shaadi.svg",
     scheduleNote: "Baraat at 8:00 PM",
     icon: "◉",
     mapUrl: "https://maps.google.com/?q=Ginger+Agra+Bichpuri",

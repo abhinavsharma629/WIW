@@ -301,7 +301,7 @@ export default function Home() {
               className="event-card"
               key={event.name}
               style={{
-                backgroundImage: `linear-gradient(rgba(238, 234, 228, 0.9), rgba(238, 234, 228, 0.9)), url("${event.image}")`,
+                backgroundImage: `linear-gradient(rgba(238, 234, 228, 0.86), rgba(238, 234, 228, 0.86)), url("${event.image}")`,
               }}
             >
               <span className="event-number">0{index + 1}</span>

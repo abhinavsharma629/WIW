@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#18152f"/>
+      <stop offset=".58" stop-color="#4b275b"/>
+      <stop offset="1" stop-color="#a05278"/>
+    </linearGradient>
+    <radialGradient id="ball">
+      <stop stop-color="#fff8d4"/>
+      <stop offset=".45" stop-color="#cdb9d8"/>
+      <stop offset="1" stop-color="#806b94"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="1000" fill="url(#bg)"/>
+  <path d="M400 170 40 910h230ZM400 170 760 910H530Z" fill="#c69ad5" opacity=".16"/>
+  <path d="M400 170 190 930h170ZM400 170 610 930H440Z" fill="#f1c86d" opacity=".13"/>
+  <circle cx="400" cy="170" r="92" fill="url(#ball)" stroke="#f0d998" stroke-width="8"/>
+  <g fill="none" stroke="#78658b" stroke-width="4" opacity=".8">
+    <path d="M315 145h170M310 180h180M335 110h130M335 225h130"/>
+    <path d="M360 85v170M400 78v184M440 85v170"/>
+  </g>
+  <g fill="#f8e7a8">
+    <circle cx="95" cy="130" r="7"/><circle cx="175" cy="260" r="5"/>
+    <circle cx="680" cy="225" r="8"/><circle cx="725" cy="95" r="5"/>
+    <circle cx="110" cy="470" r="6"/><circle cx="700" cy="500" r="5"/>
+  </g>
+  <g transform="translate(205 420)">
+    <circle cx="150" cy="62" r="42" fill="#8c5b47"/>
+    <path d="M92 120h116l78 355H15Z" fill="#b7a0c7"/>
+    <path d="M104 130h92l45 265H58Z" fill="#d7c5df"/>
+    <g fill="#fff3c1">
+      <circle cx="105" cy="165" r="6"/><circle cx="145" cy="205" r="6"/>
+      <circle cx="185" cy="160" r="6"/><circle cx="115" cy="280" r="6"/>
+      <circle cx="185" cy="320" r="6"/><circle cx="145" cy="380" r="6"/>
+    </g>
+    <circle cx="300" cy="60" r="42" fill="#82523f"/>
+    <path d="M247 113h106l34 362H215Z" fill="#242039"/>
+    <path d="M275 113h48v362h-48Z" fill="#c7a762" opacity=".65"/>
+    <path d="M185 145c38 52 69 50 95 4" fill="none" stroke="#8c5b47" stroke-width="18" stroke-linecap="round"/>
+  </g>
+  <path d="M0 875q100-55 200 0t200 0 200 0 200 0v125H0Z" fill="#171426" opacity=".75"/>
+</svg>
