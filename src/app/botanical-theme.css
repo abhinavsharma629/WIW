@@ -612,11 +612,6 @@ body.ivory-botanical {
   margin: 0.5cqi 0 1cqi;
 }
 
-.ivory-botanical .event-card[data-event="wedding"] .event-dress-code span {
-  display: inline;
-  margin-right: 0.5em;
-}
-
 @media (max-width: 760px) {
   .ivory-botanical .events-grid {
     gap: 2rem;

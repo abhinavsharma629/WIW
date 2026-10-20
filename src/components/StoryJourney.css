@@ -1,0 +1,452 @@
+.story-journey {
+  background:
+    radial-gradient(ellipse at 0% 45%, #edf2e480, transparent 55%),
+    var(--paper);
+  color: var(--ink);
+  padding: clamp(3.5rem, 7vw, 7rem) clamp(1rem, 6vw, 6rem);
+}
+
+.journey-heading,
+.journey-layout,
+.journey-arrival {
+  margin-inline: auto;
+  max-width: 76rem;
+}
+
+.journey-heading {
+  align-items: end;
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+  margin-bottom: 4rem;
+}
+
+.journey-heading h2 {
+  font-size: clamp(2.7rem, 5.2vw, 5.2rem);
+  margin: 0.75rem 0 1rem;
+}
+
+.journey-heading h2 em {
+  color: var(--botanical-green);
+  font-family: var(--font-serif), serif;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+}
+
+.journey-heading > div > p:last-child {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+.journey-start {
+  align-items: center;
+  background: var(--botanical-green);
+  border: 1px solid var(--botanical-green);
+  border-radius: 999px;
+  color: var(--paper);
+  display: inline-flex;
+  flex-shrink: 0;
+  font-size: 0.78rem;
+  gap: 1rem;
+  min-height: 48px;
+  padding: 0.8rem 1.3rem;
+  text-decoration: none;
+}
+
+.journey-start span {
+  font-size: 1.3rem;
+}
+
+.journey-layout {
+  align-items: start;
+  display: grid;
+  gap: clamp(2rem, 5vw, 5rem);
+  grid-template-columns: 0.9fr 1.1fr;
+}
+
+.journey-companion {
+  min-width: 0;
+  position: sticky;
+  top: 2rem;
+}
+
+.journey-postcard {
+  background: #fffdf5;
+  border: 1px solid var(--line);
+  border-radius: 0.3rem;
+  box-shadow: 0 1rem 2.5rem #2c3d2b12;
+  margin: 0.5rem 0 1.75rem;
+  padding: 0.75rem;
+  position: relative;
+  transform: rotate(-2deg);
+}
+
+.journey-postcard::before {
+  background: #b5bf8f80;
+  content: "";
+  height: 1.6rem;
+  left: 40%;
+  position: absolute;
+  top: -0.7rem;
+  transform: rotate(7deg);
+  width: 4rem;
+  z-index: 2;
+}
+
+.journey-photo {
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  position: relative;
+}
+
+.journey-photo img {
+  object-fit: cover;
+  object-position: 50% 35%;
+}
+
+.journey-postcard figcaption {
+  font-family: var(--font-serif), serif;
+  font-size: clamp(1.2rem, 1.8vw, 1.7rem);
+  font-style: italic;
+  padding: 0.9rem 0.25rem 0.3rem;
+  text-align: center;
+}
+
+.journey-postmark {
+  align-items: center;
+  background: var(--paper);
+  border: 1px dashed var(--botanical-green);
+  border-radius: 50%;
+  color: var(--botanical-green);
+  display: flex;
+  font-size: 0.63rem;
+  height: 5rem;
+  justify-content: center;
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+  position: absolute;
+  right: -0.6rem;
+  text-align: center;
+  top: 1.25rem;
+  transform: rotate(12deg);
+  width: 5rem;
+  z-index: 2;
+}
+
+.journey-dashboard {
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+  border-top: 1px solid var(--line);
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+
+.journey-dashboard span {
+  color: var(--muted);
+  display: block;
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.45rem;
+  text-transform: uppercase;
+}
+
+.journey-dashboard strong {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.journey-dashboard-stop {
+  text-align: right;
+}
+
+.journey-dashboard-stop strong {
+  color: var(--botanical-green);
+  font-variant-numeric: tabular-nums;
+}
+
+.journey-scroll-note {
+  color: var(--muted);
+  font-size: 0.7rem;
+  margin: 0.85rem 0 0;
+}
+
+.journey-route {
+  --journey-road-width: 5rem;
+  --journey-road-gap: 1.5rem;
+  min-width: 0;
+  position: relative;
+}
+
+.journey-road {
+  bottom: 0;
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  width: var(--journey-road-width);
+}
+
+.journey-road-svg {
+  height: 100%;
+  overflow: visible;
+  width: 100%;
+}
+
+.journey-road-svg path {
+  fill: none;
+}
+
+.journey-road-edge {
+  stroke: #bbc8ac;
+  stroke-width: 36px;
+}
+
+.journey-road-surface {
+  stroke: #6b8065;
+  stroke-width: 29px;
+}
+
+.journey-road-dashes {
+  stroke: #fff9dc;
+  stroke-dasharray: 5 12;
+  stroke-width: 1.5px;
+}
+
+.journey-mile-marker {
+  background: var(--paper);
+  border: 2px solid #9aa98e;
+  border-radius: 50%;
+  height: 0.9rem;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 0.9rem;
+}
+
+.journey-mile-marker[data-passed="true"] {
+  background: #eacb81;
+  border-color: var(--paper);
+}
+
+.journey-car {
+  filter: drop-shadow(0 3px 3px #273e3240);
+  left: 50%;
+  position: absolute;
+  top: 0;
+  transform: translate(-50%, -50%) rotate(180deg);
+  width: 2.75rem;
+  will-change: transform;
+  z-index: 2;
+}
+
+.journey-car svg {
+  display: block;
+  width: 100%;
+}
+
+.journey-stops {
+  display: grid;
+  gap: 2rem;
+  grid-auto-rows: 1fr;
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 calc(var(--journey-road-width) + var(--journey-road-gap));
+  position: relative;
+}
+
+.journey-stop {
+  background: #fffdf5;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  min-height: 14rem;
+  padding: 1.5rem;
+  position: relative;
+  scroll-margin-block: 30svh;
+  transition: background-color 180ms ease, border-color 180ms ease;
+}
+
+.journey-stop::before {
+  background: var(--line);
+  content: "";
+  height: 1px;
+  left: calc(-0.5 * var(--journey-road-width) - var(--journey-road-gap));
+  position: absolute;
+  top: 50%;
+  width: calc(0.5 * var(--journey-road-width) + var(--journey-road-gap));
+}
+
+.journey-stop[data-active="true"] {
+  background: var(--botanical-soft);
+  border-color: var(--botanical-green);
+}
+
+.journey-stop:focus-visible {
+  outline: 2px solid var(--botanical-green);
+  outline-offset: 4px;
+}
+
+.journey-stop-meta {
+  color: var(--muted);
+  display: flex;
+  font-size: 0.65rem;
+  gap: 1rem;
+  justify-content: space-between;
+  letter-spacing: 0.1em;
+  margin-bottom: 1.1rem;
+  text-transform: uppercase;
+}
+
+.journey-stop-meta span:last-child {
+  color: var(--botanical-green);
+  font-weight: 700;
+}
+
+.journey-stop-icon {
+  color: var(--botanical-green);
+  height: 2.5rem;
+  margin-bottom: 0.6rem;
+  width: 2.5rem;
+}
+
+.journey-stop-icon svg {
+  height: 100%;
+  width: 100%;
+}
+
+.journey-stop h3 {
+  font-family: var(--font-serif), serif;
+  font-size: clamp(1.6rem, 2.5vw, 2.1rem);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  margin: 0 0 0.65rem;
+}
+
+.journey-stop > p {
+  color: var(--muted);
+  font-size: 0.86rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.journey-stop-note {
+  color: var(--botanical-green);
+  display: block;
+  font-family: var(--font-serif), serif;
+  font-size: 1rem;
+  font-style: italic;
+  margin-top: 1rem;
+}
+
+.journey-arrival {
+  align-items: center;
+  border-top: 1px dashed var(--line);
+  display: flex;
+  font-size: 0.78rem;
+  gap: 1.5rem;
+  justify-content: space-between;
+  line-height: 1.6;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+}
+
+.journey-arrival > span {
+  color: var(--muted);
+}
+
+.journey-arrival a {
+  color: var(--botanical-green);
+  padding-block: 0.75rem;
+  text-underline-offset: 5px;
+}
+
+@media (max-width: 1100px) {
+  .journey-heading {
+    align-items: start;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .journey-layout {
+    gap: 2rem;
+    grid-template-columns: 0.8fr 1.2fr;
+  }
+}
+
+@media (max-width: 800px) {
+  .journey-heading {
+    align-items: center;
+    margin-bottom: 2.5rem;
+    text-align: center;
+  }
+
+  .journey-heading h2 {
+    font-size: clamp(2.6rem, 9vw, 4rem);
+    line-height: 1;
+    max-width: 14ch;
+  }
+
+  .journey-layout {
+    gap: 3rem;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .journey-companion {
+    margin-inline: auto;
+    max-width: 30rem;
+    position: static;
+    width: calc(100% - 1rem);
+  }
+
+  .journey-photo {
+    aspect-ratio: 16 / 11;
+  }
+
+  .journey-route {
+    --journey-road-width: 3.5rem;
+    --journey-road-gap: 1rem;
+  }
+
+  .journey-car {
+    width: 2.25rem;
+  }
+
+  .journey-stops {
+    gap: 1.5rem;
+  }
+
+  .journey-stop {
+    padding: 1.1rem;
+  }
+
+  .journey-stop-meta {
+    font-size: 0.6rem;
+    letter-spacing: 0.06em;
+  }
+
+  .journey-stop > p {
+    font-size: 0.82rem;
+    line-height: 1.65;
+  }
+
+  .journey-arrival {
+    align-items: start;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .journey-car,
+  .journey-scroll-note {
+    display: none;
+  }
+
+  .journey-stop {
+    transition: none;
+  }
+}

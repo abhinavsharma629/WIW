@@ -7,13 +7,13 @@ import {
   gallery,
   quizQuestions,
   shoeGameQuestions,
-  story,
 } from "@/data/wedding";
 import {
   RiveCharacterPreview,
   RiveShoeGameStage,
 } from "@/components/RiveShoeGame";
 import EventCards from "@/components/EventCards";
+import StoryJourney from "@/components/StoryJourney";
 
 type Countdown = {
   days: number;
@@ -262,32 +262,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="story" className="story-section">
-        <div className="story-portrait">
-          <div className="portrait-frame">
-            <span>Our favourite chapter</span>
-          </div>
-        </div>
-        <div className="story-content">
-          <p className="eyebrow">How it all began</p>
-          <h2>A little bit of fate,<br />a lifetime of us.</h2>
-          <p className="lead">
-            Two lives, one unexpected hello, and countless memories later—we
-            cannot wait to celebrate our next chapter with you.
-          </p>
-          <div className="timeline">
-            {story.map((chapter) => (
-              <article key={chapter.year}>
-                <span>{chapter.year}</span>
-                <div>
-                  <h3>{chapter.title}</h3>
-                  <p>{chapter.description}</p>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+      <StoryJourney />
 
       <EventCards />
 

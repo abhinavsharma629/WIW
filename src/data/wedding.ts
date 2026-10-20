@@ -1,7 +1,7 @@
 export const couple = {
   partnerOne: "Abhinav",
   partnerTwo: "Mishi",
-  weddingDate: "2026-11-21T19:00:00+05:30",
+  weddingDate: "2026-11-21T20:00:00+05:30",
   displayDate: "20 & 21 November 2026",
   rsvpBy: "1 November 2026",
   city: "Agra, Uttar Pradesh",
@@ -78,7 +78,7 @@ export const events = [
     kicker: "Our forever begins",
     description: "Seven promises. A lifetime of us.",
     date: "Saturday · 21 November",
-    time: "7:00 PM onwards",
+    time: "8:00 PM onwards",
     venue: "Ginger Agra · Bichpuri",
     dressCode: "Royal / ethnic",
     image: "/images/celebration-wedding.webp",
