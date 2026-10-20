@@ -13,7 +13,9 @@ import {
   RiveShoeGameStage,
 } from "@/components/RiveShoeGame";
 import EventCards from "@/components/EventCards";
+import InvitationWelcome from "@/components/InvitationWelcome";
 import StoryJourney from "@/components/StoryJourney";
+import WeddingHashtag from "@/components/WeddingHashtag";
 
 type Countdown = {
   days: number;
@@ -49,7 +51,6 @@ function Monogram() {
 }
 
 export default function Home() {
-  const [invitationOpen, setInvitationOpen] = useState(false);
   const [countdown, setCountdown] = useState<Countdown>(emptyCountdown);
   const [activeQuestion, setActiveQuestion] = useState(0);
   const [quizScore, setQuizScore] = useState(0);
@@ -170,19 +171,7 @@ export default function Home() {
 
   return (
     <main>
-      <div className={`invitation-gate ${invitationOpen ? "is-open" : ""}`}>
-        <div className="gate-glow" />
-        <div className="invitation-card">
-          <p className="eyebrow">Together with your families</p>
-          <Monogram />
-          <h1>You are invited</h1>
-          <p>to witness the beginning of our forever</p>
-          <button className="button button-gold" onClick={() => setInvitationOpen(true)}>
-            Open invitation
-            <span aria-hidden="true">→</span>
-          </button>
-        </div>
-      </div>
+      <InvitationWelcome />
 
       <nav className="site-nav" aria-label="Main navigation">
         <a href="#home" className="nav-mark">
@@ -208,6 +197,7 @@ export default function Home() {
               <i>&</i>
               <span>{couple.partnerTwo}</span>
             </h1>
+            <WeddingHashtag />
           </div>
           <div className="hero-summary">
             <p>{couple.tagline}</p>
@@ -502,7 +492,10 @@ export default function Home() {
 
       <footer>
         <Monogram />
-        <p>Made with love for our favourite people.</p>
+        <div className="footer-note">
+          <WeddingHashtag />
+          <p>Made with love for our favourite people.</p>
+        </div>
         <p>{couple.displayDate} · {couple.city}</p>
       </footer>
 

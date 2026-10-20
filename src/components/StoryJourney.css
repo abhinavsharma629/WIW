@@ -55,8 +55,10 @@
   text-decoration: none;
 }
 
-.journey-start span {
-  font-size: 1.3rem;
+.journey-start svg {
+  flex-shrink: 0;
+  height: 1.4rem;
+  width: 1.4rem;
 }
 
 .journey-layout {

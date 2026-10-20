@@ -1,0 +1,77 @@
+.wedding-music {
+  bottom: calc(1.5rem + env(safe-area-inset-bottom));
+  position: fixed;
+  right: calc(1.5rem + env(safe-area-inset-right));
+  z-index: 50;
+}
+
+.wedding-music-button {
+  align-items: center;
+  animation: wedding-music-float 3.8s ease-in-out infinite;
+  background: #64765d;
+  border: 0;
+  border-radius: 50%;
+  box-shadow: 0 8px 22px #34493226, 0 2px 5px #34493212;
+  color: #fff9e8;
+  cursor: pointer;
+  display: flex;
+  height: 50px;
+  justify-content: center;
+  padding: 0;
+  position: relative;
+  width: 50px;
+}
+
+.wedding-music-button:focus-visible {
+  animation-play-state: paused;
+  outline: 2px solid #486247;
+  outline-offset: 7px;
+}
+
+.wedding-music-control {
+  height: 20px;
+  width: 20px;
+}
+
+.wedding-music-status:not(:empty) {
+  background: #fffdf4;
+  border: 1px solid #d3ddc7;
+  border-radius: 0.85rem;
+  bottom: calc(100% + 0.85rem);
+  box-shadow: 0 0.3rem 1rem #2c3d2b12;
+  color: #344932;
+  font-size: 0.72rem;
+  line-height: 1.5;
+  padding: 0.85rem 1rem;
+  position: absolute;
+  right: 0;
+  width: 13.5rem;
+}
+
+.wedding-music-status {
+  margin: 0;
+}
+
+@media (hover: hover) {
+  .wedding-music-button:hover {
+    animation-play-state: paused;
+    background: #586d52;
+    box-shadow: 0 10px 24px #3449322b, 0 3px 6px #34493214;
+  }
+}
+
+@keyframes wedding-music-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wedding-music-button {
+    animation: none;
+  }
+}

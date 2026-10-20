@@ -147,7 +147,13 @@ export default function StoryJourney() {
           <p>Three favourite stops. One very happy destination.</p>
         </div>
         <a className="journey-start" href={`#story-stop-${story[0].year}`}>
-          Let&apos;s go for a drive <span aria-hidden="true">↘</span>
+          Let&apos;s go for a drive
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <path d="m5 11 2-6h10l2 6M5 18v2m14-2v2" />
+            <rect x="3" y="11" width="18" height="7" rx="2" />
+            <circle cx="7" cy="14.5" r="0.8" fill="currentColor" />
+            <circle cx="17" cy="14.5" r="0.8" fill="currentColor" />
+          </svg>
         </a>
       </div>
 
