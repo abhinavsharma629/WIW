@@ -754,6 +754,228 @@ body.ivory-botanical {
   border-left: 3px solid var(--botanical-green);
 }
 
+@media (max-width: 900px) {
+  .ivory-botanical .game-section {
+    gap: 1.5rem;
+    grid-template-columns: minmax(0, 1fr);
+    min-height: 0;
+    padding: 3.5rem clamp(1rem, 4vw, 2rem);
+  }
+
+  .ivory-botanical .game-copy {
+    margin-inline: auto;
+    max-width: 40rem;
+    padding: 0;
+    text-align: center;
+  }
+
+  .ivory-botanical .game-copy h2 {
+    font-size: clamp(2rem, 7vw, 3rem);
+    line-height: 1.1;
+    margin: 0.75rem auto;
+    max-width: 20ch;
+  }
+
+  .ivory-botanical .game-copy > p:not(.eyebrow) {
+    font-size: 0.9rem;
+    line-height: 1.65;
+    margin: 0.75rem auto 0;
+    max-width: 34rem;
+  }
+
+  .ivory-botanical .game-switcher {
+    border-radius: 999px;
+    margin: 1.25rem auto 0;
+    max-width: 24rem;
+  }
+
+  .ivory-botanical .game-switcher button {
+    border-radius: inherit;
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+    min-height: 44px;
+  }
+
+  .ivory-botanical .game-rule {
+    border: 0;
+    gap: 0.65rem;
+    justify-content: center;
+    margin-top: 1rem;
+    padding: 0;
+  }
+
+  .ivory-botanical .game-rule strong {
+    font-size: 1.5rem;
+  }
+
+  .ivory-botanical .game-rule span {
+    font-size: 0.58rem;
+    line-height: 1.5;
+    text-align: left;
+  }
+
+  .ivory-botanical .game-section .quiz-card {
+    border: 1px solid var(--line);
+    border-radius: 1.25rem;
+    margin-inline: auto;
+    max-width: 42rem;
+    padding: 1.25rem;
+    width: 100%;
+  }
+
+  .ivory-botanical .quiz-card h3 {
+    font-size: clamp(1.4rem, 5vw, 2rem);
+    margin-bottom: 1rem;
+  }
+
+  .ivory-botanical .side-picker > p:not(.eyebrow) {
+    font-size: 0.875rem;
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+  }
+
+  .ivory-botanical .side-buttons {
+    gap: 0.75rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ivory-botanical .side-buttons button {
+    border-radius: 0.875rem;
+    padding: 0.875rem 0.5rem;
+  }
+
+  .ivory-botanical .side-buttons strong {
+    font-size: clamp(1rem, 4vw, 1.2rem);
+  }
+
+  .ivory-botanical .side-buttons small {
+    font-size: 0.7rem;
+  }
+
+  .ivory-botanical .wedding-rive-canvas.is-compact {
+    height: clamp(4.5rem, 18vw, 6rem);
+    width: clamp(4.5rem, 18vw, 6rem);
+  }
+
+  .ivory-botanical .shoe-game-top {
+    align-items: center;
+    flex-direction: row;
+    gap: 0.5rem;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.5rem;
+  }
+
+  .ivory-botanical .shoe-game-top button {
+    min-height: 44px;
+    padding: 0.5rem 0.25rem;
+  }
+
+  .ivory-botanical .rive-wedding-stage {
+    aspect-ratio: auto;
+    background: var(--botanical-soft);
+    border: 1px solid var(--line);
+    border-radius: 1rem;
+    box-shadow: none;
+    display: flex;
+    flex-direction: column;
+    margin: 0.75rem 0;
+  }
+
+  .ivory-botanical .rive-wedding-stage .wedding-rive-canvas {
+    aspect-ratio: 16 / 11;
+    height: auto;
+  }
+
+  .ivory-botanical .rive-question-board {
+    background: var(--paper);
+    min-height: 0;
+    order: -1;
+    padding: 1rem;
+    position: static;
+    width: 100%;
+  }
+
+  .ivory-botanical .rive-question-board span {
+    font-size: 0.6rem;
+    letter-spacing: 0.08em;
+  }
+
+  .ivory-botanical .rive-question-board strong {
+    color: var(--ink);
+    font-size: clamp(1.15rem, 4.2vw, 1.5rem);
+    line-height: 1.2;
+  }
+
+  .ivory-botanical .rive-side-indicator {
+    display: none;
+  }
+
+  .ivory-botanical .shoe-choices {
+    gap: 0.6rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ivory-botanical .shoe-choices button {
+    border-radius: 0.75rem;
+    flex-direction: column;
+    font-size: 0.75rem;
+    gap: 0.25rem;
+    letter-spacing: 0;
+    line-height: 1.4;
+    min-height: 4.5rem;
+    padding: 0.75rem 0.5rem;
+    text-transform: none;
+  }
+
+  .ivory-botanical .shoe-pickup-status {
+    border-radius: 0.75rem;
+    letter-spacing: 0;
+    line-height: 1.5;
+    padding: 1rem;
+    text-align: center;
+    text-transform: none;
+  }
+
+  .ivory-botanical .shoe-pickup-status span {
+    flex-shrink: 0;
+  }
+
+  .ivory-botanical .shoe-answer {
+    align-items: stretch;
+    border-radius: 0.75rem;
+    flex-direction: column;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .ivory-botanical .shoe-answer p {
+    font-size: 0.875rem;
+  }
+
+  .ivory-botanical .progress-track {
+    margin-bottom: 1.5rem;
+  }
+
+  .ivory-botanical .quiz-options button {
+    border-radius: 0.75rem;
+    font-size: 0.9rem;
+    min-height: 3.25rem;
+    padding: 0.75rem;
+  }
+
+  .ivory-botanical .quiz-options button span {
+    flex-shrink: 0;
+  }
+
+  .ivory-botanical .quiz-result > strong {
+    font-size: 4rem;
+  }
+
+  .ivory-botanical .quiz-card .button {
+    min-height: 44px;
+  }
+}
+
 .ivory-botanical :is(.rsvp-form input, .rsvp-form select, .rsvp-form textarea) {
   border-color: #8c9e7f;
   color: var(--ink);

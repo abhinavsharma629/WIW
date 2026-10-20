@@ -392,7 +392,6 @@ export default function Home() {
 
           {activeGame === "shoes" && !guestSide && (
             <div className="side-picker">
-              <div className="rive-picker-title">Interactive Rive shoe game</div>
               <p className="eyebrow">The host asks</p>
               <h3>Which side are you cheering for?</h3>
               <p>Choose your side, then raise the bride&apos;s or groom&apos;s shoe for every question.</p>
