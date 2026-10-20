@@ -16,7 +16,7 @@ export const story = [
     year: "2024",
     title: "A chance hello",
     description:
-      "A rainy evening, one shared umbrella, and a conversation neither of us wanted to end.",
+      "A chatty evening, with some good coffee and a conversation neither of us wanted to end.",
   },
   {
     year: "2025",
