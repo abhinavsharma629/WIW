@@ -1,11 +1,16 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { preload } from "react-dom";
 import { events } from "@/data/wedding";
 
 const particles = Array.from({ length: 18 }, (_, index) => index);
 
 export default function EventCards() {
+  for (const event of events) {
+    preload(event.image, { as: "image", fetchPriority: "low" });
+  }
+
   const sectionRef = useRef<HTMLElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
   const activeEventRef = useRef(events[0].id);

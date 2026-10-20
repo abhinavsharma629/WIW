@@ -1,3 +1,12 @@
+import mehendiArtwork from "../../public/images/celebration-mehendi.webp";
+import sangeetArtwork from "../../public/images/celebration-sangeet.webp";
+import haldiArtwork from "../../public/images/celebration-haldi.webp";
+import weddingArtwork from "../../public/images/celebration-wedding.webp";
+import galleryCelebration from "../../public/images/gallery-celebration.jpg";
+import galleryBirthday from "../../public/images/gallery-birthday.jpg";
+import galleryBali from "../../public/images/gallery-bali.jpg";
+import galleryPolaroids from "../../public/images/gallery-polaroids.jpg";
+
 export const couple = {
   partnerOne: "Abhinav",
   partnerTwo: "Mishi",
@@ -42,7 +51,7 @@ export const events = [
     time: "9:00 AM",
     venue: "Ginger Agra · Bichpuri",
     dressCode: "Green · any shade",
-    image: "/images/celebration-mehendi.webp",
+    image: mehendiArtwork.src,
     icon: "❋",
     mapUrl: "https://maps.google.com/?q=Ginger+Agra+Bichpuri",
   },
@@ -55,7 +64,7 @@ export const events = [
     time: "6:00 PM",
     venue: "Ginger Agra · Bichpuri",
     dressCode: "Glitter & bling",
-    image: "/images/celebration-sangeet.webp",
+    image: sangeetArtwork.src,
     icon: "✦",
     mapUrl: "https://maps.google.com/?q=Ginger+Agra+Bichpuri",
   },
@@ -68,7 +77,7 @@ export const events = [
     time: "9:00 AM",
     venue: "Ginger Agra · Bichpuri",
     dressCode: "Pastel colours",
-    image: "/images/celebration-haldi.webp",
+    image: haldiArtwork.src,
     icon: "☀",
     mapUrl: "https://maps.google.com/?q=Ginger+Agra+Bichpuri",
   },
@@ -81,7 +90,7 @@ export const events = [
     time: "8:00 PM onwards",
     venue: "Ginger Agra · Bichpuri",
     dressCode: "Royal / ethnic",
-    image: "/images/celebration-wedding.webp",
+    image: weddingArtwork.src,
     scheduleNote: "Baraat at 8:00 PM",
     icon: "◉",
     mapUrl: "https://maps.google.com/?q=Ginger+Agra+Bichpuri",
@@ -90,22 +99,22 @@ export const events = [
 
 export const gallery = [
   {
-    src: "/images/gallery-celebration.jpg",
+    src: galleryCelebration,
     alt: "Abhinav and Mishi celebrating together among marigold decorations",
     caption: "The colours of us.",
   },
   {
-    src: "/images/gallery-birthday.jpg",
+    src: galleryBirthday,
     alt: "Abhinav and Mishi smiling together at a birthday celebration",
     caption: "Still choosing each other.",
   },
   {
-    src: "/images/gallery-bali.jpg",
+    src: galleryBali,
     alt: "Abhinav and Mishi jumping between the Handara Gate in Bali",
     caption: "Miles of memories.",
   },
   {
-    src: "/images/gallery-polaroids.jpg",
+    src: galleryPolaroids,
     alt: "A hand holding favourite Polaroid photographs of Abhinav and Mishi",
     caption: "Little moments, forever kept.",
   },

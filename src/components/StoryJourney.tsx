@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { couple, story } from "@/data/wedding";
+import storyPhoto from "../../public/images/our-favourite-chapter.jpg";
 import "./StoryJourney.css";
 
 const stopNotes = ["Coffee & connection", "A few happy detours", "Destination: forever"];
@@ -163,9 +164,12 @@ export default function StoryJourney() {
             <span className="journey-postmark">Two seats.<br />One forever.</span>
             <div className="journey-photo">
               <Image
-                src="/images/our-favourite-chapter.jpg"
+                src={storyPhoto}
                 alt={`${couple.partnerOne} and ${couple.partnerTwo} together`}
                 fill
+                loading="eager"
+                fetchPriority="low"
+                placeholder="blur"
                 sizes="(max-width: 800px) 90vw, 40vw"
               />
             </div>

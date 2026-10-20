@@ -201,23 +201,23 @@ export function RiveShoeGameStage({
   }, [guestSide, raisedShoe]);
 
   return (
-    <div
-      className={`rive-wedding-stage ${result === "correct" ? "is-celebrating" : ""}`}
-    >
-      <WeddingRiveCanvas
-        guestSide={guestSide}
-        raisedShoe={raisedShoe}
-        questionNumber={questionNumber}
-      />
-      <div className="rive-question-board">
-        <span>
-          Question {questionNumber} of {totalQuestions}
-        </span>
+    <>
+      <p className="shoe-game-question" aria-live="polite" aria-atomic="true">
+        <span>Question {questionNumber} of {totalQuestions}</span>
         <strong>{question}</strong>
+      </p>
+      <div
+        className={`rive-wedding-stage ${result === "correct" ? "is-celebrating" : ""}`}
+      >
+        <WeddingRiveCanvas
+          guestSide={guestSide}
+          raisedShoe={raisedShoe}
+          questionNumber={questionNumber}
+        />
+        <div className="rive-side-indicator" aria-live="polite">
+          Playing as the {guestSide}
+        </div>
       </div>
-      <div className="rive-side-indicator" aria-live="polite">
-        Playing as the {guestSide}
-      </div>
-    </div>
+    </>
   );
 }

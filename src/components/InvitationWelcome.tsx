@@ -21,9 +21,10 @@ export default function InvitationWelcome() {
     };
   }, []);
 
-  const playMusic = useCallback(async () => {
+  const playMusic = useCallback(async (userInitiated = false) => {
     const audio = audioRef.current;
     if (!audio) {
+      setPlayback("error");
       setMessage("Music is not ready yet. Please try again.");
       return;
     }
@@ -39,8 +40,10 @@ export default function InvitationWelcome() {
     } catch (error) {
       if (request !== requestRef.current) return;
       if (error instanceof DOMException && error.name === "NotAllowedError") {
-        setPlayback("paused");
-        setMessage("Tap play to add a little music.");
+        setPlayback(userInitiated ? "error" : "paused");
+        setMessage(userInitiated
+          ? "Your browser blocked music. Please check your audio settings."
+          : "Tap play to add a little music.");
       } else {
         setPlayback("error");
         setMessage("Our song couldn't play. Tap to try again.");
@@ -56,7 +59,7 @@ export default function InvitationWelcome() {
       setPlayback("paused");
       setMessage("");
     } else {
-      void playMusic();
+      void playMusic(true);
     }
   }
 
@@ -65,8 +68,8 @@ export default function InvitationWelcome() {
       <InvitationEnvelope onOpened={playMusic} />
       <audio
         ref={audioRef}
-        src="/audio/wedding-soundtrack.mp3"
-        preload="none"
+        src="/audio/wedding-soundtrack-a4f14ae3.mp3"
+        preload="auto"
         loop
         aria-hidden="true"
         onPlaying={(event) => {
@@ -88,7 +91,13 @@ export default function InvitationWelcome() {
         }}
       />
       <div className="wedding-music" data-state={playback}>
-        <p className="wedding-music-status" id="wedding-music-status" role="status">{message}</p>
+        <p
+          className={`wedding-music-status${playback === "error" ? "" : " sr-only"}`}
+          id="wedding-music-status"
+          role="status"
+        >
+          {message}
+        </p>
         <button
           type="button"
           className="wedding-music-button"

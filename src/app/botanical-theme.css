@@ -10,7 +10,7 @@ body.ivory-botanical {
   --line: #d3ddc7;
   --botanical-green: #486247;
   --botanical-soft: #edf2e4;
-  --botanical-art: url("/images/green-floral-border.svg");
+  --botanical-art: url("../../public/images/green-floral-border.svg");
   --botanical-size: clamp(3.5rem, 6vw, 5.5rem) auto;
   background-color: var(--paper);
   color: var(--ink);
@@ -881,26 +881,6 @@ body.ivory-botanical {
     height: auto;
   }
 
-  .ivory-botanical .rive-question-board {
-    background: var(--paper);
-    min-height: 0;
-    order: -1;
-    padding: 1rem;
-    position: static;
-    width: 100%;
-  }
-
-  .ivory-botanical .rive-question-board span {
-    font-size: 0.6rem;
-    letter-spacing: 0.08em;
-  }
-
-  .ivory-botanical .rive-question-board strong {
-    color: var(--ink);
-    font-size: clamp(1.15rem, 4.2vw, 1.5rem);
-    line-height: 1.2;
-  }
-
   .ivory-botanical .rive-side-indicator {
     display: none;
   }
@@ -992,11 +972,45 @@ body.ivory-botanical {
 
 .ivory-botanical footer {
   border-top: 1px solid var(--line);
+  gap: 2rem;
 }
 
-@media (max-width: 600px) {
+.ivory-botanical .footer-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.5rem;
+  justify-content: flex-end;
+  line-height: 1.7;
+  max-width: 24rem;
+}
+
+.ivory-botanical .footer-note > p {
+  line-height: 1.7;
+  text-wrap: balance;
+}
+
+@media (max-width: 900px) {
+  .ivory-botanical .rsvp-section {
+    padding-bottom: 2rem;
+  }
+
   .ivory-botanical footer {
-    padding-bottom: calc(10rem + env(safe-area-inset-bottom));
+    align-items: center;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    padding: 1.5rem 1.5rem calc(2rem + env(safe-area-inset-bottom));
+    text-align: center;
+  }
+
+  .ivory-botanical .footer-details {
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .ivory-botanical .footer-details > span[aria-hidden] {
+    display: none;
   }
 }
 

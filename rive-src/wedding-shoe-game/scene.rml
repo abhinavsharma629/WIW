@@ -405,11 +405,6 @@
         </Node>
 
         <!-- Decorative stage layers, declared late so they remain behind the people. -->
-        <Shape x="450" y="65" name="Question Screen">
-            <Rectangle width="440" height="108" cornerRadiusTL="18" originX="0.5" originY="0.5" name="Path"/>
-            <Fill name="Fill"><SolidColor colorValue="EEFFFCF7" name="Color"/></Fill>
-            <Stroke thickness="3" name="Gold Edge"><SolidColor colorValue="FFB8AEA1" name="Color"/></Stroke>
-        </Shape>
         <Shape x="450" y="305" opacity="0" name="Floral Arch">
             <Ellipse width="690" height="490" originX="0.5" originY="0.5" name="Path"/>
             <Stroke thickness="18" name="Greenery"><SolidColor colorValue="FF4D653D" name="Color"/></Stroke>

@@ -924,6 +924,29 @@ h2 {
   width: 8rem;
 }
 
+.shoe-game-question {
+  color: var(--ink);
+  margin: 0.75rem auto;
+  max-width: 42rem;
+  text-align: center;
+}
+
+.shoe-game-question span {
+  color: var(--muted);
+  display: block;
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.shoe-game-question strong {
+  display: block;
+  font-size: clamp(1rem, 3.8vw, 1.25rem);
+  font-weight: 500;
+  line-height: 1.4;
+  margin-top: 0.35rem;
+}
+
 .rive-wedding-stage {
   aspect-ratio: 16 / 11;
   background: #210e18;
@@ -934,37 +957,6 @@ h2 {
   overflow: hidden;
   position: relative;
   width: 100%;
-}
-
-.rive-question-board {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-  justify-content: center;
-  left: 25.5%;
-  min-height: 20%;
-  padding: 0.8rem 1.5rem;
-  position: absolute;
-  text-align: center;
-  top: 2.8%;
-  width: 49%;
-  z-index: 2;
-}
-
-.rive-question-board span {
-  color: #a35f70;
-  font-size: 0.5rem;
-  font-weight: 700;
-  letter-spacing: 0.13em;
-  text-transform: uppercase;
-}
-
-.rive-question-board strong {
-  color: #2e2025;
-  font-family: var(--font-serif), serif;
-  font-size: clamp(1rem, 2.5vw, 1.45rem);
-  line-height: 1.08;
 }
 
 .rive-side-indicator {
@@ -3203,19 +3195,6 @@ footer {
     border-width: 0.2rem;
     margin: 0.75rem 0;
     max-width: 100%;
-  }
-
-  .rive-question-board {
-    gap: 0.2rem;
-    left: 8%;
-    min-height: 23%;
-    padding: 0.35rem 0.55rem;
-    top: 1.5%;
-    width: 84%;
-  }
-
-  .rive-question-board strong {
-    font-size: clamp(0.75rem, 3.5vw, 1rem);
   }
 
   .rive-side-indicator {

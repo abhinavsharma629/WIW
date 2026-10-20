@@ -16,6 +16,7 @@ import EventCards from "@/components/EventCards";
 import InvitationWelcome from "@/components/InvitationWelcome";
 import StoryJourney from "@/components/StoryJourney";
 import WeddingHashtag from "@/components/WeddingHashtag";
+import coverPhoto from "../../public/images/abhinav-mishi-cover.jpg";
 
 type Countdown = {
   days: number;
@@ -204,10 +205,7 @@ export default function Home() {
             <p className="hero-date">{couple.displayDate}</p>
             <div className="hero-actions">
               <a className="button button-dark" href="#rsvp">
-                RSVP now
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <path d="M13 20H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v7M3 6l9 6 9-6m-5 12 2 2 4-5" />
-                </svg>
+                RSVP now <span aria-hidden="true">↗</span>
               </a>
               <a className="text-link" href="#story">
                 Our story <span>↓</span>
@@ -217,19 +215,22 @@ export default function Home() {
         </div>
         <div className="hero-image">
           <Image
-            src="/images/abhinav-mishi-cover.jpg"
+            src={coverPhoto}
             alt=""
             fill
-            priority
+            loading="eager"
+            fetchPriority="low"
+            placeholder="blur"
             sizes="100vw"
             className="hero-image-backdrop"
             aria-hidden="true"
           />
           <Image
-            src="/images/abhinav-mishi-cover.jpg"
+            src={coverPhoto}
             alt="Abhinav and Mishi enjoying an outdoor adventure together"
             fill
-            priority
+            preload
+            placeholder="blur"
             sizes="100vw"
             className="hero-image-photo"
           />
@@ -278,7 +279,7 @@ export default function Home() {
           {gallery.map((photo, index) => (
             <button
               className={`gallery-item gallery-item-${index + 1}`}
-              key={photo.src}
+              key={photo.src.src}
               onClick={() => setSelectedPhoto(index)}
               aria-label={`Open photo: ${photo.alt}`}
             >
@@ -286,6 +287,9 @@ export default function Home() {
                 src={photo.src}
                 alt={photo.alt}
                 fill
+                loading="eager"
+                fetchPriority="low"
+                placeholder="blur"
                 sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw"
               />
               <span>{photo.caption}</span>
@@ -499,7 +503,11 @@ export default function Home() {
           <WeddingHashtag />
           <p>Made with love for our favourite people.</p>
         </div>
-        <p>{couple.displayDate} · {couple.city}</p>
+        <p className="footer-details">
+          <span>{couple.displayDate}</span>
+          <span aria-hidden="true">·</span>
+          <span>{couple.city}</span>
+        </p>
       </footer>
 
       {selectedPhoto !== null && (

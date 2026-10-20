@@ -33,7 +33,7 @@
   width: 20px;
 }
 
-.wedding-music-status:not(:empty) {
+.wedding-music-status:not(:empty):not(.sr-only) {
   background: #fffdf4;
   border: 1px solid #d3ddc7;
   border-radius: 0.85rem;
@@ -50,6 +50,15 @@
 
 .wedding-music-status {
   margin: 0;
+}
+
+@media (max-width: 900px) {
+  .wedding-music-status:not(:empty):not(.sr-only) {
+    bottom: auto;
+    position: fixed;
+    right: calc(1.5rem + env(safe-area-inset-right));
+    top: calc(5.5rem + env(safe-area-inset-top));
+  }
 }
 
 @media (hover: hover) {
