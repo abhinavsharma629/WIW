@@ -1,0 +1,783 @@
+body.ivory-botanical {
+  --paper: #fffff0;
+  --cream: #fffff0;
+  --ink: #2c3d2b;
+  --muted: #59674f;
+  --gold: #486247;
+  --gold-light: #3f5a3d;
+  --stone: #fffff0;
+  --stone-dark: #486247;
+  --line: #d3ddc7;
+  --botanical-green: #486247;
+  --botanical-soft: #edf2e4;
+  --botanical-art: url("/images/green-floral-border.svg");
+  --botanical-size: clamp(3.5rem, 6vw, 5.5rem) auto;
+  background-color: var(--paper);
+  color: var(--ink);
+}
+
+.ivory-botanical main {
+  background-color: var(--paper);
+  /* Preserve clipping without trapping the atmosphere's sticky layers. */
+  overflow: clip;
+}
+
+.ivory-botanical :is(
+  .invitation-gate,
+  .hero,
+  .countdown-section,
+  .story-section,
+  .events-section,
+  .gallery-section,
+  .game-section,
+  .game-copy,
+  .quiz-card,
+  .rsvp-section,
+  footer,
+  .lightbox
+) {
+  background-color: var(--paper);
+  background-image: none;
+  color: var(--ink);
+}
+
+.ivory-botanical :is(.invitation-gate, .hero) {
+  background-image: var(--botanical-art);
+  background-position: right 1.5rem top 6rem;
+  background-repeat: no-repeat;
+  background-size: var(--botanical-size);
+}
+
+.ivory-botanical .invitation-gate {
+  background-position: left 1.5rem bottom 1.5rem;
+}
+
+.ivory-botanical .site-nav {
+  background: rgba(255, 255, 240, 0.96);
+  border-color: var(--line);
+  color: var(--ink);
+}
+
+.ivory-botanical :is(.nav-mark, .nav-links a, .nav-rsvp) {
+  color: var(--ink);
+}
+
+.ivory-botanical :is(.nav-links a:hover, .hero h1 i, .monogram i) {
+  color: var(--botanical-green);
+}
+
+.ivory-botanical .nav-rsvp {
+  border-color: var(--botanical-green);
+}
+
+.ivory-botanical :is(.eyebrow, .event-icon, .event-date, .event-number) {
+  color: var(--botanical-green);
+}
+
+.ivory-botanical .events-section {
+  --celebration-edge: clamp(5rem, 12svh, 9rem);
+  --celebration-ink: #fff0ca;
+  --celebration-canvas: #173c2d;
+  background: var(--celebration-canvas);
+  border-top: 0;
+  color: var(--celebration-ink);
+  isolation: isolate;
+  overflow: clip;
+  position: relative;
+  transition: color 180ms ease-out;
+}
+
+.ivory-botanical .events-section[data-active-event="sangeet"] {
+  --celebration-ink: #fff0e1;
+  --celebration-canvas: #180d35;
+}
+
+.ivory-botanical .events-section[data-active-event="haldi"] {
+  --celebration-ink: #612917;
+  --celebration-canvas: #ffdb70;
+}
+
+.ivory-botanical .events-section[data-active-event="wedding"] {
+  --celebration-ink: #603d40;
+  --celebration-canvas: #f9e3df;
+}
+
+.ivory-botanical .events-section .section-intro > p {
+  color: inherit;
+}
+
+.ivory-botanical .event-atmosphere {
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: -1;
+}
+
+.ivory-botanical .event-atmosphere::after {
+  background-image:
+    linear-gradient(to bottom, var(--paper), transparent),
+    linear-gradient(to top, var(--paper), transparent);
+  background-position: center top, center bottom;
+  background-repeat: no-repeat;
+  background-size: 100% var(--celebration-edge);
+  content: "";
+  inset: 0;
+  position: absolute;
+  z-index: 1;
+}
+
+.ivory-botanical .event-scene {
+  inset: 0;
+  opacity: 0;
+  position: absolute;
+  transition: opacity 160ms ease-out;
+  will-change: opacity;
+}
+
+.ivory-botanical .event-scene[data-active="true"] {
+  opacity: 1;
+}
+
+.ivory-botanical .event-scene[data-event="mehndi"] {
+  background:
+    radial-gradient(ellipse at 0% 15%, #a3bb5370, transparent 45%),
+    radial-gradient(ellipse at 100% 80%, #bb8a3940, transparent 45%),
+    linear-gradient(135deg, #0c2923, #28563a 55%, #112e25);
+}
+
+.ivory-botanical .event-scene[data-event="sangeet"] {
+  background:
+    radial-gradient(ellipse at 0% 30%, #b020b95c, transparent 50%),
+    radial-gradient(ellipse at 100% 70%, #304bc580, transparent 50%),
+    linear-gradient(160deg, #110b28, #2d1556 55%, #100b25);
+}
+
+.ivory-botanical .event-scene[data-event="haldi"] {
+  background:
+    radial-gradient(ellipse at 10% 20%, #fff8c1, transparent 45%),
+    radial-gradient(ellipse at 100% 80%, #f58c3680, transparent 50%),
+    linear-gradient(145deg, #ffda65, #ffe9a0 50%, #ffbc46);
+}
+
+.ivory-botanical .event-scene[data-event="wedding"] {
+  background:
+    radial-gradient(ellipse at 0% 20%, #fff8e8, transparent 50%),
+    radial-gradient(ellipse at 100% 75%, #d88b9f66, transparent 50%),
+    linear-gradient(140deg, #f9e8db, #f6d4df 55%, #fff1df);
+}
+
+.ivory-botanical .event-atmosphere-stage {
+  contain: paint;
+  height: 100svh;
+  overflow: hidden;
+  position: sticky;
+  top: 0;
+}
+
+.ivory-botanical .event-scene::before,
+.ivory-botanical .event-scene::after {
+  animation-play-state: paused;
+  content: "";
+  pointer-events: none;
+  position: absolute;
+}
+
+.ivory-botanical .event-scene::after {
+  background: radial-gradient(circle, #fff1ad55, transparent 65%);
+  border-radius: 50%;
+  height: 60vmin;
+  right: -15vmin;
+  top: 45%;
+  width: 60vmin;
+}
+
+.ivory-botanical .event-emblem {
+  animation: celebration-turn 70s linear infinite paused;
+  aspect-ratio: 1;
+  border: 0.8rem double #e2ba6680;
+  border-radius: 50%;
+  display: block;
+  left: -10vmin;
+  position: absolute;
+  top: 12%;
+  width: 44vmin;
+}
+
+.ivory-botanical .event-emblem::before,
+.ivory-botanical .event-emblem::after {
+  border: 1px solid currentColor;
+  border-radius: inherit;
+  color: #edc98180;
+  content: "";
+  inset: 12%;
+  position: absolute;
+}
+
+.ivory-botanical .event-scene[data-event="mehndi"] .event-emblem {
+  background: repeating-conic-gradient(#e2ba6650 0deg 2deg, transparent 2deg 15deg);
+}
+
+.ivory-botanical .event-scene[data-event="mehndi"] .event-emblem::after {
+  border: 0.5rem dotted #edc98180;
+  inset: 26%;
+}
+
+.ivory-botanical .event-scene[data-event="sangeet"] .event-emblem {
+  animation-duration: 35s;
+  background:
+    radial-gradient(circle at 30% 25%, #ffffffa0, transparent 45%),
+    repeating-linear-gradient(0deg, transparent 0 9px, #32254a 9px 11px),
+    repeating-linear-gradient(90deg, #d9d6eb 0 9px, #665380 9px 11px);
+  border: 1px solid #d5c8f0;
+  box-shadow: 0 0 5rem #c391f680, 0 0 12rem #9d6cd240;
+  left: 8%;
+  opacity: 0.65;
+  top: 10%;
+  width: clamp(5rem, 13vw, 11rem);
+}
+
+.ivory-botanical .event-scene[data-event="sangeet"] .event-emblem::before,
+.ivory-botanical .event-scene[data-event="sangeet"] .event-emblem::after {
+  display: none;
+}
+
+.ivory-botanical .event-scene[data-event="sangeet"]::before {
+  animation: celebration-spotlights 10s ease-in-out infinite alternate paused;
+  background: conic-gradient(
+    from 125deg at 50% 0%,
+    transparent 0deg,
+    #c98fff33 12deg,
+    transparent 28deg 52deg,
+    #ffe4a933 65deg,
+    transparent 80deg 100deg,
+    #9fafff44 112deg,
+    transparent 128deg
+  );
+  inset: -10% -35% -30%;
+  transform-origin: 50% 0%;
+}
+
+.ivory-botanical .event-scene[data-event="haldi"] .event-emblem {
+  background: repeating-conic-gradient(#f5a81255 0deg 8deg, transparent 8deg 20deg);
+  border: 0;
+  left: calc(50% - 45vmin);
+  mask-image: radial-gradient(circle, #000 10%, transparent 70%);
+  top: -12vmin;
+  width: 90vmin;
+}
+
+.ivory-botanical .event-scene[data-event="haldi"] .event-emblem::before,
+.ivory-botanical .event-scene[data-event="haldi"] .event-emblem::after {
+  display: none;
+}
+
+.ivory-botanical .event-scene[data-event="wedding"] .event-emblem {
+  animation: none;
+  border: 0.3rem double #b18a4d80;
+  left: -8vmin;
+  top: 20%;
+  width: 32vmin;
+}
+
+.ivory-botanical .event-scene[data-event="wedding"] .event-emblem::before {
+  border: 0.3rem double #b18a4d80;
+  height: 100%;
+  inset: 25% auto auto 65%;
+  width: 100%;
+}
+
+.ivory-botanical .event-scene[data-event="wedding"] .event-emblem::after {
+  display: none;
+}
+
+.ivory-botanical .event-particles {
+  inset: 0;
+  position: absolute;
+}
+
+.ivory-botanical .event-particle {
+  animation: celebration-petals 12s linear infinite paused;
+  background: linear-gradient(135deg, #f2d389, #a88c43);
+  border-radius: 0 80% 0 80%;
+  height: clamp(0.75rem, 1.6vw, 1.3rem);
+  opacity: 0;
+  position: absolute;
+  top: -3rem;
+  width: clamp(0.4rem, 0.8vw, 0.7rem);
+}
+
+.ivory-botanical .event-particle:nth-child(3n) {
+  width: 0.35rem;
+}
+
+.ivory-botanical .event-atmosphere-stage[data-event="sangeet"] .event-particle {
+  background: #fff0c5;
+  border-radius: 0;
+  clip-path: polygon(50% 0, 61% 37%, 100% 50%, 61% 61%, 50% 100%, 38% 61%, 0 50%, 38% 37%);
+  height: 0.8rem;
+  width: 0.8rem;
+}
+
+.ivory-botanical .event-atmosphere-stage[data-event="haldi"] .event-particle {
+  background: linear-gradient(135deg, #ffad13, #e87322);
+  border-radius: 80% 20% 70% 30%;
+}
+
+.ivory-botanical .event-atmosphere-stage[data-event="wedding"] .event-particle {
+  background: linear-gradient(135deg, #fff2e9, #d87e9a);
+  box-shadow: 0 0 1rem #fff6df80;
+}
+
+.ivory-botanical .events-section[data-in-view="true"] .event-scene[data-active="true"] .event-emblem,
+.ivory-botanical .events-section[data-in-view="true"] .event-particle,
+.ivory-botanical .events-section[data-in-view="true"] .event-scene[data-active="true"]::before {
+  animation-play-state: running;
+}
+
+@keyframes celebration-turn {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes celebration-spotlights {
+  from {
+    transform: rotate(-18deg);
+  }
+  to {
+    transform: rotate(18deg);
+  }
+}
+
+@keyframes celebration-petals {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -2rem, 0) rotate(0deg);
+  }
+  12% {
+    opacity: 0.7;
+  }
+  85% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(4rem, calc(100svh + 5rem), 0) rotate(480deg);
+  }
+}
+
+.ivory-botanical .events-grid {
+  align-items: stretch;
+  gap: clamp(2rem, 4vw, 3rem);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 58rem;
+  perspective: 1400px;
+  position: relative;
+}
+
+.ivory-botanical .events-section .section-intro::after {
+  background: linear-gradient(90deg, transparent, var(--celebration-ink), transparent);
+  content: "";
+  display: block;
+  height: 1px;
+  margin: 2rem auto 0;
+  width: 10rem;
+}
+
+.ivory-botanical .event-poster {
+  min-width: 0;
+  position: relative;
+  transform-origin: center top;
+  transition:
+    opacity 650ms ease,
+    transform 950ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ivory-botanical .event-poster:nth-child(even) {
+  transition-delay: 140ms;
+}
+
+.ivory-botanical .events-grid[data-reveal-ready] .event-poster:not(.is-visible):not(:focus-within) {
+  opacity: 0;
+  transform: translateY(4rem) rotateX(12deg) scale(0.96);
+}
+
+.ivory-botanical .event-poster::before {
+  background: linear-gradient(110deg, #c6cba4b3, #e5e6c7cc, #c6cba4b3);
+  box-shadow: 0 1px 2px #43503912;
+  content: "";
+  height: 1.4rem;
+  left: calc(50% - 2rem);
+  pointer-events: none;
+  position: absolute;
+  top: -0.65rem;
+  transform: rotate(-6deg);
+  width: 4rem;
+  z-index: 3;
+}
+
+.ivory-botanical .event-poster:nth-child(even)::before {
+  transform: rotate(6deg);
+}
+
+.ivory-botanical .event-card {
+  aspect-ratio: 9 / 16;
+  background: linear-gradient(135deg, #fffdf7, #f0ebdf);
+  border: 1px solid #d9d3c3;
+  border-radius: 0.25rem;
+  box-shadow: 0 1px 0 #fff9eb, 0 3px 0 #e0d8c8, 0 1rem 2rem #3c503b20;
+  color: #2c3d2b;
+  container-type: inline-size;
+  display: grid;
+  min-height: 0;
+  overflow: hidden;
+  padding: clamp(0.4rem, 1.2vw, 0.75rem);
+  place-items: center;
+  transform: rotate(-0.65deg);
+  transition:
+    box-shadow 350ms ease,
+    transform 350ms ease;
+}
+
+.ivory-botanical .event-poster:nth-child(even) .event-card {
+  transform: rotate(0.65deg);
+}
+
+.ivory-botanical .event-card-art {
+  aspect-ratio: 9 / 16;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  container-type: inline-size;
+  position: relative;
+  width: 100%;
+}
+
+.ivory-botanical .event-poster .event-card:is(:hover, :focus-within) {
+  background: linear-gradient(135deg, #fffdf7, #f0ebdf);
+  box-shadow: 0 1px 0 #fff9eb, 0 3px 0 #e0d8c8, 0 1.5rem 2.5rem #3c503b30;
+  transform: translateY(-0.4rem) rotate(0);
+}
+
+.ivory-botanical .event-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8cqi;
+  left: 16%;
+  position: absolute;
+  top: 25%;
+  width: 68%;
+}
+
+.ivory-botanical .event-card-content p {
+  color: inherit;
+  font-size: clamp(0.65rem, 3cqi, 0.9rem);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.ivory-botanical .event-card-content .event-date {
+  color: inherit;
+  font-size: clamp(0.55rem, 2.5cqi, 0.72rem);
+  letter-spacing: 0.04em;
+}
+
+.ivory-botanical .event-card-content .event-kicker {
+  font-size: clamp(0.5rem, 2.2cqi, 0.65rem);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.ivory-botanical .event-card-content .event-description {
+  font-family: var(--font-serif), serif;
+  font-size: clamp(0.8rem, 4.2cqi, 1.2rem);
+  font-style: italic;
+  line-height: 1.2;
+  margin: 1cqi 0 1.5cqi;
+  text-wrap: balance;
+}
+
+.ivory-botanical .event-card-content h3 {
+  color: inherit;
+  font-family: var(--font-serif), serif;
+  font-size: clamp(2rem, 13cqi, 3.8rem);
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+  margin: 0;
+  text-wrap: balance;
+}
+
+.ivory-botanical .event-details {
+  border-block: 1px solid currentColor;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7cqi;
+  padding-block: 1.5cqi;
+}
+
+.ivory-botanical .event-when {
+  align-items: baseline;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5cqi 2cqi;
+  justify-content: center;
+}
+
+.ivory-botanical .event-card-content .event-time {
+  font-size: clamp(0.65rem, 3cqi, 0.9rem);
+  font-weight: 700;
+}
+
+.ivory-botanical .event-card-content .event-schedule-note {
+  font-size: clamp(0.6rem, 2.6cqi, 0.8rem);
+}
+
+.ivory-botanical .event-card-content .event-dress-code {
+  border: 0;
+  margin: 1cqi auto 0;
+  max-width: none;
+  padding: 0;
+  width: 100%;
+}
+
+.ivory-botanical .event-dress-code span {
+  font-size: clamp(0.45rem, 1.9cqi, 0.6rem);
+  margin-bottom: 0.5cqi;
+}
+
+.ivory-botanical .event-card-content a {
+  align-self: center;
+  border-color: currentColor;
+  color: inherit;
+  font-size: clamp(0.55rem, 2.3cqi, 0.7rem);
+  letter-spacing: 0.06em;
+  margin-top: 1cqi;
+  padding-bottom: 1cqi;
+}
+
+.ivory-botanical .event-card[data-event="mehndi"] {
+  color: #4c2817;
+}
+
+.ivory-botanical .event-card[data-event="mehndi"] .event-card-content {
+  left: 25%;
+  top: 30%;
+  width: 50%;
+}
+
+.ivory-botanical .event-card[data-event="sangeet"] {
+  color: #fff0d1;
+  text-shadow: 0 1px 8px #02142080;
+}
+
+.ivory-botanical .event-card[data-event="sangeet"] .event-card-content {
+  top: 24%;
+}
+
+.ivory-botanical .event-card[data-event="haldi"] {
+  color: #633016;
+}
+
+.ivory-botanical .event-card[data-event="haldi"] .event-card-content {
+  gap: 0.35cqi;
+  left: 11%;
+  top: 15%;
+  width: 78%;
+}
+
+.ivory-botanical .event-card[data-event="haldi"] h3 {
+  font-size: clamp(1.6rem, 11.2cqi, 3rem);
+}
+
+.ivory-botanical .event-card[data-event="haldi"] .event-description {
+  font-size: clamp(0.75rem, 3.6cqi, 1.05rem);
+  margin: 0.5cqi 0 1cqi;
+}
+
+.ivory-botanical .event-card[data-event="wedding"] {
+  color: #3a5038;
+}
+
+.ivory-botanical .event-card[data-event="wedding"] .event-card-content {
+  gap: 0;
+  left: 13%;
+  top: 31.5%;
+  width: 74%;
+}
+
+.ivory-botanical .event-card[data-event="wedding"] .event-description {
+  margin: 0.5cqi 0 1cqi;
+}
+
+.ivory-botanical .event-card[data-event="wedding"] .event-dress-code span {
+  display: inline;
+  margin-right: 0.5em;
+}
+
+@media (max-width: 760px) {
+  .ivory-botanical .events-grid {
+    gap: 2rem;
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 28rem;
+  }
+
+  .ivory-botanical .event-poster:nth-child(even) {
+    transition-delay: 0ms;
+  }
+}
+
+@container (max-width: 260px) {
+  .ivory-botanical .event-card-content {
+    gap: 0;
+  }
+
+  .ivory-botanical .event-details {
+    gap: 0;
+    padding-block: 1cqi;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ivory-botanical .event-scene,
+  .ivory-botanical .events-section {
+    transition: none;
+  }
+
+  .ivory-botanical .event-emblem,
+  .ivory-botanical .event-particle,
+  .ivory-botanical .event-scene[data-event]::before {
+    animation: none;
+  }
+
+  .ivory-botanical .event-particle {
+    display: none;
+  }
+
+  .ivory-botanical .event-poster,
+  .ivory-botanical .event-poster .event-card {
+    transition: none;
+  }
+
+  .ivory-botanical .events-grid[data-reveal-ready] .event-poster:not(.is-visible):not(:focus-within) {
+    opacity: 1;
+    transform: none;
+  }
+
+  .ivory-botanical .event-poster .event-card:is(:hover, :focus-within) {
+    transform: none;
+  }
+}
+
+.ivory-botanical :is(.button-dark, .button-gold) {
+  background: var(--botanical-green);
+  color: var(--paper);
+}
+
+.ivory-botanical :is(.button-dark:hover, .button-gold:hover) {
+  background: var(--gold-light);
+}
+
+.ivory-botanical :is(
+  .countdown-item span,
+  .game-copy > p:not(.eyebrow),
+  .rsvp-copy > p:last-child,
+  .invitation-card > p:not(.eyebrow)
+) {
+  color: var(--muted);
+}
+
+.ivory-botanical :is(.countdown-item, .game-switcher, .game-rule, .rsvp-form) {
+  border-color: var(--line);
+}
+
+.ivory-botanical .timeline article::before {
+  background: var(--line);
+}
+
+.ivory-botanical :is(
+  .invitation-card,
+  .rsvp-form,
+  .side-buttons button,
+  .shoe-choices button,
+  .quiz-options button,
+  .shoe-answer,
+  .shoe-pickup-status
+) {
+  background-color: var(--paper);
+  border-color: var(--line);
+  color: var(--ink);
+}
+
+.ivory-botanical .invitation-card {
+  box-shadow: 0 1.5rem 4rem #3c503b10;
+}
+
+.ivory-botanical :is(.invitation-card::before, .invitation-card::after) {
+  border-color: var(--line);
+}
+
+.ivory-botanical .gate-glow {
+  background: none;
+}
+
+.ivory-botanical .game-copy .eyebrow,
+.ivory-botanical .game-rule strong {
+  color: var(--botanical-green);
+}
+
+.ivory-botanical .game-switcher button {
+  color: var(--ink);
+}
+
+.ivory-botanical .game-switcher button.active {
+  background: var(--botanical-green);
+  color: var(--paper);
+}
+
+.ivory-botanical .progress-track {
+  background: var(--line);
+}
+
+.ivory-botanical .quiz-options button:hover {
+  background: var(--botanical-soft);
+  border-color: var(--botanical-green);
+}
+
+.ivory-botanical :is(.side-buttons button:hover, .shoe-choices button:hover) {
+  border-color: var(--botanical-green);
+}
+
+.ivory-botanical .shoe-answer.correct {
+  border-left: 3px solid var(--botanical-green);
+}
+
+.ivory-botanical :is(.rsvp-form input, .rsvp-form select, .rsvp-form textarea) {
+  border-color: #8c9e7f;
+  color: var(--ink);
+}
+
+.ivory-botanical :is(.rsvp-form input, .rsvp-form textarea)::placeholder {
+  color: var(--muted);
+  opacity: 1;
+}
+
+.ivory-botanical :is(.rsvp-form input, .rsvp-form select, .rsvp-form textarea):focus-visible {
+  outline: 2px solid var(--botanical-green);
+  outline-offset: 4px;
+}
+
+.ivory-botanical :is(footer .monogram, .lightbox-close) {
+  color: var(--ink);
+}
+
+.ivory-botanical footer {
+  border-top: 1px solid var(--line);
+}
+
+.ivory-botanical :is(button, a, summary):focus-visible {
+  outline: 2px solid var(--botanical-green);
+  outline-offset: 4px;
+}

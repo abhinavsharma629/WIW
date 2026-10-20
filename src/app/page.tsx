@@ -4,7 +4,6 @@ import Image from "next/image";
 import { FormEvent, useEffect, useMemo, useState } from "react";
 import {
   couple,
-  events,
   gallery,
   quizQuestions,
   shoeGameQuestions,
@@ -14,6 +13,7 @@ import {
   RiveCharacterPreview,
   RiveShoeGameStage,
 } from "@/components/RiveShoeGame";
+import EventCards from "@/components/EventCards";
 
 type Countdown = {
   days: number;
@@ -289,41 +289,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="events" className="events-section">
-        <div className="section-intro centered">
-          <p className="eyebrow">Mark your calendar</p>
-          <h2>The celebrations</h2>
-          <p>Come for the vows, stay for the dancing, and leave with beautiful memories.</p>
-        </div>
-        <div className="events-grid">
-          {events.map((event, index) => (
-            <article
-              className="event-card"
-              key={event.name}
-              style={{
-                backgroundImage: `linear-gradient(rgba(238, 234, 228, 0.86), rgba(238, 234, 228, 0.86)), url("${event.image}")`,
-              }}
-            >
-              <span className="event-number">0{index + 1}</span>
-              <div className="event-icon" aria-hidden="true">{event.icon}</div>
-              <p className="event-date">{event.date}</p>
-              <h3>{event.name}</h3>
-              <p>{event.time}</p>
-              <p>{event.venue}</p>
-              {"scheduleNote" in event && event.scheduleNote && (
-                <p>{event.scheduleNote}</p>
-              )}
-              <p className="event-dress-code">
-                <span>Dress code</span>
-                {event.dressCode}
-              </p>
-              <a href={event.mapUrl} target="_blank" rel="noreferrer">
-                View location <span>↗</span>
-              </a>
-            </article>
-          ))}
-        </div>
-      </section>
+      <EventCards />
 
       <section id="gallery" className="gallery-section">
         <div className="gallery-heading">

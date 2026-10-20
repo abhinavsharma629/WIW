@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Manrope } from "next/font/google";
 import "./globals.css";
+import "./botanical-theme.css";
 
 const serif = Cormorant_Garamond({
   variable: "--font-serif",
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${serif.variable} ${sans.variable}`}>
-      <body suppressHydrationWarning>{children}</body>
+      <body className="ivory-botanical" suppressHydrationWarning>{children}</body>
     </html>
   );
 }
