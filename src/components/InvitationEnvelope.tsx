@@ -151,7 +151,11 @@ export default function InvitationEnvelope({ onOpened }: { onOpened?: () => void
 
         <div className="envelope-action">
           <button className="envelope-open" type="button" onClick={openInvitation} disabled={phase !== "sealed"}>
-            Open our invitation <span aria-hidden="true">&#8599;</span>
+            Open our invitation
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="14" rx="2" />
+              <path d="m3 7 9 6 9-6" />
+            </svg>
           </button>
           <p className="envelope-status" role="status">
             {phase === "sealed" ? "Or tap the wax seal. Let the happy begin." : "Opening a lifetime of happy little things..."}

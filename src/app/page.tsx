@@ -204,7 +204,10 @@ export default function Home() {
             <p className="hero-date">{couple.displayDate}</p>
             <div className="hero-actions">
               <a className="button button-dark" href="#rsvp">
-                RSVP now <span aria-hidden="true">↗</span>
+                RSVP now
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M13 20H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v7M3 6l9 6 9-6m-5 12 2 2 4-5" />
+                </svg>
               </a>
               <a className="text-link" href="#story">
                 Our story <span>↓</span>
